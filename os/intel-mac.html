@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intel Mac Games | Games Arc</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Copy all the CSS from index.html up to the footer section */
+        /* In a real project, you would extract this to a separate CSS file */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-dark: #0a0a1a;
+            --secondary-dark: #1a1a2e;
+            --primary-purple: #5d3fd3;
+            --secondary-purple: #7c5fe6;
+            --primary-blue: #0ea5e9;
+            --secondary-blue: #38bdf8;
+            --text-light: #f1f5f9;
+            --text-gray: #94a3b8;
+            --card-bg: rgba(26, 26, 46, 0.9);
+            --hover-glow: rgba(93, 63, 211, 0.4);
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation - Same as index.html */
+        header {
+            background-color: rgba(10, 10, 26, 0.95);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background-color: var(--text-light);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--secondary-dark);
+            padding: 100px 30px 30px;
+            transition: var(--transition);
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .nav-menu.active {
+            right: 0;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-bottom: 25px;
+        }
+
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            background-color: rgba(93, 63, 211, 0.2);
+            color: var(--secondary-blue);
+            transform: translateX(5px);
+        }
+
+        .nav-menu i {
+            font-size: 1.5rem;
+            width: 30px;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px;
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(rgba(10, 10, 26, 0.9), rgba(10, 10, 26, 0.7)), url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1926&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* OS Banner */
+        .os-banner {
+            background: linear-gradient(135deg, rgba(93, 63, 211, 0.2), rgba(14, 165, 233, 0.2));
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin: 3rem 0;
+            border: 2px solid rgba(93, 63, 211, 0.3);
+        }
+
+        .os-banner i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .os-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .os-banner p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Games Container */
+        .games-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        /* Game Cards - Same as index.html */
+        .game-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--hover-glow);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .game-card:hover .game-image {
+            transform: scale(1.05);
+            filter: brightness(0.7) saturate(1.2);
+        }
+
+        .game-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(10, 10, 26, 0.9), transparent);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .game-card:hover .game-name {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .game-details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(10, 10, 26, 0.95);
+            transform: translateY(100%);
+            transition: var(--transition);
+            opacity: 0;
+        }
+
+        .game-card:hover .game-details {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .game-platforms {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .platform-tag {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: var(--primary-purple);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .platform-tag.pc {
+            background-color: #3a86ff;
+        }
+
+        .platform-tag.mac-intel {
+            background-color: #ff6b6b;
+        }
+
+        .platform-tag.mac-arm {
+            background-color: #4ecdc4;
+        }
+
+        .game-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;   /* future standard */
+  overflow: hidden;
+}
+
+        .game-rating {
+            color: #ffd700;
+            font-size: 0.9rem;
+        }
+
+        .game-downloads {
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        /* Premium Overlay */
+        .premium-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 10, 26, 0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .premium-game:hover .premium-overlay {
+            opacity: 1;
+        }
+
+        .premium-tag {
+            background: linear-gradient(45deg, #ffd700, #ff9500);
+            color: var(--primary-dark);
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .lock-icon {
+            font-size: 3rem;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+
+        /* Loading */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(93, 63, 211, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary-purple);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Footer - Same as index.html */
+        footer {
+            background-color: #0a0a1a;
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            color: var(--secondary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-purple);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Modal for premium games */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1100;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: var(--secondary-dark);
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid var(--primary-purple);
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--secondary-blue);
+        }
+
+        .modal h2 {
+            margin-bottom: 1rem;
+            color: var(--secondary-blue);
+        }
+
+        .modal p {
+            margin-bottom: 1.5rem;
+            color: var(--text-gray);
+        }
+
+        .price-tag {
+            background: linear-gradient(to right, #ffd700, #ff9500);
+            color: var(--primary-dark);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+            
+            .os-banner h2 {
+                font-size: 2rem;
+            }
+            
+            .games-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="logo-container">
+            <div class="logo-img">GA</div>
+            <a href="index.html" class="logo-text">Games Arc</a>
+        </div>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <nav class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="intel-mac.html"><i class="fab fa-apple"></i> Intel Mac Games</a></li>
+                <li><a href="arm-mac.html"><i class="fab fa-apple"></i> ARM Mac Games</a></li>
+                <li><a href="pc-games.html"><i class="fas fa-desktop"></i> PC Games</a></li>
+                <li><a href="premium-games.html"><i class="fas fa-crown"></i> Premium Games</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Intel Mac Games</h1>
+        <p>Download the latest games optimized for Intel-based Mac computers</p>
+    </div>
+
+    <!-- OS Banner -->
+    <div class="container">
+        <div class="os-banner">
+            <i class="fab fa-apple"></i>
+            <h2>Intel Mac Compatible Games</h2>
+            <p>All games are tested and verified to work on Intel-based Mac computers (iMac, MacBook Pro, Mac mini, Mac Pro with Intel processors)</p>
+        </div>
+    </div>
+
+    <!-- Games Container -->
+    <div class="container">
+        <div class="games-container" id="games-container">
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="logo-container" style="justify-content: flex-start; margin-bottom: 1.5rem;">
+                    <div class="logo-img">GA</div>
+                    <a href="index.html" class="logo-text">Games Arc</a>
+                </div>
+                <p style="color: var(--text-gray);">Your ultimate destination for downloading games for ARM Mac, Intel Mac, and PC.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="intel-mac.html">Intel Mac Games</a></li>
+                    <li><a href="arm-mac.html">ARM Mac Games</a></li>
+                    <li><a href="pc-games.html">PC Games</a></li>
+                    <li><a href="premium-games.html">Premium Games</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p style="color: var(--text-gray); margin-bottom: 1rem;"><i class="fas fa-envelope"></i> support@gamesarc.com</p>
+                <p style="color: var(--text-gray); margin-bottom: 1.5rem;"><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                
+                <h3 style="margin-top: 2rem;">Join Our Community</h3>
+                <div class="social-links">
+                    <a href="https://t.me/Gamesarc_Community" target="_blank" title="Telegram: Gamesarc_Community"><i class="fab fa-telegram"></i></a>
+                    <a href="https://discord.gg/GamesArc" target="_blank" title="Discord: GamesArc"><i class="fab fa-discord"></i></a>
+                    <a href="mailto:support@gamesarc.com" title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 1rem;">All premium games can be purchased via Telegram and Discord. Replies within 24 hours.</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Games Arc. All rights reserved. All trademarks are property of their respective owners.</p>
+            <p style="margin-top: 0.5rem;">This website is for demonstration purposes only.</p>
+        </div>
+    </footer>
+
+    <!-- Premium Game Modal -->
+    <div class="modal" id="premiumModal">
+        <div class="modal-content">
+            <div class="close-modal" id="closeModal">&times;</div>
+            <h2>Premium Game Access</h2>
+            <p>This game is part of our premium collection. To download this game, please contact us via Telegram or Discord.</p>
+            <div class="price-tag">$2 - $3 per game</div>
+            <p>All premium games are available at affordable prices with full customer support.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 1.5rem;">
+                <a href="https://t.me/Gamesarc_Community" target="_blank" class="cta-button" style="padding: 10px 25px;"><i class="fab fa-telegram"></i> Telegram</a>
+                <a href="https://discord.gg/GamesArc" target="_blank" class="cta-button" style="padding: 10px 25px; background: linear-gradient(to right, #5865F2, #9b59b6);"><i class="fab fa-discord"></i> Discord</a>
+            </div>
+            <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--text-gray);">Telegram: @Gamesarc_Community | Discord: GamesArc</p>
+        </div>
+    </div>
+
+    <script>
+        // Game Data (same as index.html)
+        const games = [
+            {
+                id: 1,
+                name: "Cyberpunk 2077",
+                platforms: ["pc", "mac-intel", "mac-arm"],
+                image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+                description: "An open-world RPG set in Night City, a megalopolis obsessed with power and body modifications.",
+                rating: 4.5,
+                downloads: "1.2M",
+                genre: "action",
+                premium: false,
+                page: "game-cyberpunk2077.html"
+            },
+            {
+                id: 2,
+                name: "Elden Ring",
+                platforms: ["pc", "mac-intel"],
+                image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1171&q=80",
+                description: "A fantasy action-RPG adventure set within a world created by Hidetaka Miyazaki and George R. R. Martin.",
+                rating: 5,
+                downloads: "950K",
+                genre: "rpg",
+                premium: false,
+                page: "game-eldenring.html"
+            },
+            // ... (same games data as index.html)
+        ];
+
+        // DOM Elements
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const gamesContainer = document.getElementById('games-container');
+        const premiumModal = document.getElementById('premiumModal');
+        const closeModal = document.getElementById('closeModal');
+
+        // Initialize the page
+        function init() {
+            setupEventListeners();
+            loadIntelMacGames();
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Mobile Navigation Toggle
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close modal
+            closeModal.addEventListener('click', () => {
+                premiumModal.style.display = 'none';
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === premiumModal) {
+                    premiumModal.style.display = 'none';
+                }
+            });
+        }
+
+        // Load Intel Mac games
+        function loadIntelMacGames() {
+            // Filter games for Intel Mac
+            const intelMacGames = games.filter(game => game.platforms.includes('mac-intel'));
+            
+            if (gamesContainer) {
+                gamesContainer.innerHTML = intelMacGames.map(game => createGameCard(game)).join('');
+                
+                // Add click events to game cards
+                gamesContainer.querySelectorAll('.game-card').forEach((card, index) => {
+                    card.addEventListener('click', function() {
+                        const game = intelMacGames[index];
+                        if (game.premium) {
+                            premiumModal.style.display = 'flex';
+                        } else {
+                            window.location.href = game.page;
+                        }
+                    });
+                });
+            }
+        }
+
+        // Create game card HTML
+        function createGameCard(game) {
+            // Generate star rating
+            const starRating = generateStarRating(game.rating);
+            
+            // Generate platform tags
+            const platformTags = game.platforms.map(platform => {
+                if (platform === 'pc') return '<span class="platform-tag pc">PC</span>';
+                if (platform === 'mac-intel') return '<span class="platform-tag mac-intel">Intel Mac</span>';
+                if (platform === 'mac-arm') return '<span class="platform-tag mac-arm">ARM Mac</span>';
+                return '';
+            }).join('');
+            
+            const premiumOverlay = game.premium ? `
+                <div class="premium-overlay">
+                    <div class="premium-tag">Premium</div>
+                    <div class="lock-icon"><i class="fas fa-lock"></i></div>
+                    <p>Contact us to unlock</p>
+                </div>
+            ` : '';
+            
+            return `
+                <div class="game-card ${game.premium ? 'premium-game' : ''}" data-game-id="${game.id}">
+                    <div class="game-image" style="background-image: url('${game.image}');">
+                        <div class="game-name">${game.name}</div>
+                        <div class="game-details">
+                            <div class="game-platforms">
+                                ${platformTags}
+                            </div>
+                            <p class="game-description">${game.description}</p>
+                            <div class="game-rating">
+                                ${starRating} ${game.rating}/5
+                            </div>
+                            <div class="game-downloads">
+                                <i class="fas fa-download"></i> ${game.downloads} downloads
+                            </div>
+                        </div>
+                    </div>
+                    ${premiumOverlay}
+                </div>
+            `;
+        }
+
+        // Generate star rating HTML
+        function generateStarRating(rating) {
+            let stars = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 >= 0.5;
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+            
+            if (hasHalfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+            
+            return stars;
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
