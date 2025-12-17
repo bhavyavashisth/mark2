@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Games Arc</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-dark: #0a0a1a;
+            --secondary-dark: #1a1a2e;
+            --primary-purple: #5d3fd3;
+            --secondary-purple: #7c5fe6;
+            --primary-blue: #0ea5e9;
+            --secondary-blue: #38bdf8;
+            --text-light: #f1f5f9;
+            --text-gray: #94a3b8;
+            --card-bg: rgba(26, 26, 46, 0.9);
+            --hover-glow: rgba(93, 63, 211, 0.4);
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation - Same as before */
+        header {
+            background-color: rgba(10, 10, 26, 0.95);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background-color: var(--text-light);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--secondary-dark);
+            padding: 100px 30px 30px;
+            transition: var(--transition);
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .nav-menu.active {
+            right: 0;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-bottom: 25px;
+        }
+
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            background-color: rgba(93, 63, 211, 0.2);
+            color: var(--secondary-blue);
+            transform: translateX(5px);
+        }
+
+        .nav-menu i {
+            font-size: 1.5rem;
+            width: 30px;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px;
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(rgba(10, 10, 26, 0.9), rgba(10, 10, 26, 0.7)), url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1926&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-card {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--hover-glow);
+            border-color: var(--primary-purple);
+        }
+
+        .contact-card i {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .telegram-card i {
+            color: #0088cc;
+        }
+
+        .discord-card i {
+            color: #5865F2;
+        }
+
+        .email-card i {
+            color: #ea4335;
+        }
+
+        .contact-card h3 {
+            color: var(--secondary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-card p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(to right, var(--primary-purple), var(--primary-blue));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(93, 63, 211, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(93, 63, 211, 0.6);
+        }
+
+        .telegram-button {
+            background: linear-gradient(to right, #0088cc, #00a8ff);
+        }
+
+        .discord-button {
+            background: linear-gradient(to right, #5865F2, #9b59b6);
+        }
+
+        .email-button {
+            background: linear-gradient(to right, #ea4335, #ff6b6b);
+        }
+
+        /* Info Cards */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .info-card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-purple);
+        }
+
+        .info-card h3 {
+            color: var(--secondary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .info-card p {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 5rem 0;
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            border-left: 4px solid var(--primary-purple);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background-color: rgba(93, 63, 211, 0.1);
+        }
+
+        .faq-question h3 {
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+
+        .faq-question i {
+            color: var(--primary-purple);
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            color: var(--text-gray);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a1a;
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            color: var(--secondary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-purple);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="logo-container">
+            <div class="logo-img">GA</div>
+            <a href="index.html" class="logo-text">Games Arc</a>
+        </div>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <nav class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="intel-mac.html"><i class="fab fa-apple"></i> Intel Mac Games</a></li>
+                <li><a href="arm-mac.html"><i class="fab fa-apple"></i> ARM Mac Games</a></li>
+                <li><a href="pc-games.html"><i class="fas fa-desktop"></i> PC Games</a></li>
+                <li><a href="premium-games.html"><i class="fas fa-crown"></i> Premium Games</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Contact Us</h1>
+        <p>Get in touch with our support team for any questions or assistance</p>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="container contact-section">
+        <div class="contact-grid">
+            <div class="contact-card telegram-card">
+                <i class="fab fa-telegram"></i>
+                <h3>Telegram</h3>
+                <p>For fastest response and premium game purchases</p>
+                <p style="color: var(--text-light); font-weight: bold; margin-bottom: 1.5rem;">@Gamesarc_Community</p>
+                <a href="https://t.me/Gamesarc_Community" target="_blank" class="cta-button telegram-button">
+                    <i class="fab fa-telegram"></i> Join Telegram
+                </a>
+            </div>
+            
+            <div class="contact-card discord-card">
+                <i class="fab fa-discord"></i>
+                <h3>Discord</h3>
+                <p>Join our community for updates and support</p>
+                <p style="color: var(--text-light); font-weight: bold; margin-bottom: 1.5rem;">GamesArc Server</p>
+                <a href="https://discord.gg/GamesArc" target="_blank" class="cta-button discord-button">
+                    <i class="fab fa-discord"></i> Join Discord
+                </a>
+            </div>
+            
+            <div class="contact-card email-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>For formal inquiries and business communications</p>
+                <p style="color: var(--text-light); font-weight: bold; margin-bottom: 1.5rem;">support@gamesarc.com</p>
+                <a href="mailto:support@gamesarc.com" class="cta-button email-button">
+                    <i class="fas fa-envelope"></i> Send Email
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="container">
+        <div class="info-cards">
+            <div class="info-card">
+                <h3><i class="fas fa-clock"></i> Response Time</h3>
+                <p>We typically respond within 24 hours. For premium game purchases, please contact us via Telegram or Discord for faster response.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><i class="fas fa-crown"></i> Premium Games</h3>
+                <p>All premium games are available for purchase at $2-$3 per game. Contact us through Telegram or Discord to make a purchase.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><i class="fas fa-shield-alt"></i> Support Hours</h3>
+                <p>Our support team is available 24/7 via Telegram and Discord. Email responses may take up to 24 hours during business days.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="container faq-section">
+        <h2 style="text-align: center; margin-bottom: 3rem; color: var(--secondary-blue); font-size: 2.5rem;">Frequently Asked Questions</h2>
+        
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <h3>How do I download games from Games Arc?</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Navigate to the game page you want to download from (PC Games, Intel Mac Games, or ARM Mac Games). Click on the game card to open its detailed page, then choose your preferred download method (Akira Box, Torrent, Media Fire, or Buzzhiver).</p>
+            </div>
+        </div>
+        
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <h3>How do I purchase premium games?</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Premium games can be purchased by contacting us via Telegram (@Gamesarc_Community) or Discord (GamesArc). Let us know which game you want to purchase, and we'll provide you with the download link after payment. Prices range from $2 to $3 per game.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <h3>Are the games safe to download?</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, all games on Games Arc are thoroughly scanned and verified for security. We ensure virus-free, malware-free downloads with regular security updates. However, we always recommend having updated antivirus software on your system.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <h3>What payment methods do you accept for premium games?</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>We accept various payment methods including PayPal, cryptocurrency (Bitcoin, Ethereum), and digital gift cards. Payment options will be discussed when you contact us for purchase.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <h3>Can I request a specific game?</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Yes! If you can't find a specific game on our platform, contact us via Telegram or Discord with the game name, and we'll try to add it to our collection. We regularly update our library based on user requests.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="logo-container" style="justify-content: flex-start; margin-bottom: 1.5rem;">
+                    <div class="logo-img">GA</div>
+                    <a href="index.html" class="logo-text">Games Arc</a>
+                </div>
+                <p style="color: var(--text-gray);">Your ultimate destination for downloading games for ARM Mac, Intel Mac, and PC.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="intel-mac.html">Intel Mac Games</a></li>
+                    <li><a href="arm-mac.html">ARM Mac Games</a></li>
+                    <li><a href="pc-games.html">PC Games</a></li>
+                    <li><a href="premium-games.html">Premium Games</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p style="color: var(--text-gray); margin-bottom: 1rem;"><i class="fas fa-envelope"></i> support@gamesarc.com</p>
+                <p style="color: var(--text-gray); margin-bottom: 1.5rem;"><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                
+                <h3 style="margin-top: 2rem;">Join Our Community</h3>
+                <div class="social-links">
+                    <a href="https://t.me/Gamesarc_Community" target="_blank" title="Telegram: Gamesarc_Community"><i class="fab fa-telegram"></i></a>
+                    <a href="https://discord.gg/GamesArc" target="_blank" title="Discord: GamesArc"><i class="fab fa-discord"></i></a>
+                    <a href="mailto:support@gamesarc.com" title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 1rem;">All premium games can be purchased via Telegram and Discord. Replies within 24 hours.</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Games Arc. All rights reserved. All trademarks are property of their respective owners.</p>
+            <p style="margin-top: 0.5rem;">This website is for demonstration purposes only.</p>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        // Initialize the page
+        function init() {
+            setupEventListeners();
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Mobile Navigation Toggle
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Toggle FAQ item
+        function toggleFAQ(item) {
+            item.classList.toggle('active');
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

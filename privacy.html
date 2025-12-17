@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Games Arc</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Copy all CSS from terms.html with minor modifications */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-dark: #0a0a1a;
+            --secondary-dark: #1a1a2e;
+            --primary-purple: #5d3fd3;
+            --secondary-purple: #7c5fe6;
+            --primary-blue: #0ea5e9;
+            --secondary-blue: #38bdf8;
+            --text-light: #f1f5f9;
+            --text-gray: #94a3b8;
+            --card-bg: rgba(26, 26, 46, 0.9);
+            --hover-glow: rgba(93, 63, 211, 0.4);
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation - Same as before */
+        header {
+            background-color: rgba(10, 10, 26, 0.95);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background-color: var(--text-light);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--secondary-dark);
+            padding: 100px 30px 30px;
+            transition: var(--transition);
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .nav-menu.active {
+            right: 0;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-bottom: 25px;
+        }
+
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            background-color: rgba(93, 63, 211, 0.2);
+            color: var(--secondary-blue);
+            transform: translateX(5px);
+        }
+
+        .nav-menu i {
+            font-size: 1.5rem;
+            width: 30px;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px;
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(rgba(10, 10, 26, 0.9), rgba(10, 10, 26, 0.7));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Privacy Content */
+        .privacy-content {
+            padding: 5rem 0;
+        }
+
+        .privacy-section {
+            background-color: var(--card-bg);
+            padding: 3rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-purple);
+        }
+
+        .privacy-section h2 {
+            color: var(--secondary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .privacy-section h3 {
+            color: var(--text-light);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.3rem;
+        }
+
+        .privacy-section p {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .privacy-section ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-gray);
+        }
+
+        .privacy-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: var(--text-gray);
+            font-style: italic;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer - Same as before */
+        footer {
+            background-color: #0a0a1a;
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            color: var(--secondary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-purple);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+            
+            .privacy-section {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="logo-container">
+            <div class="logo-img">GA</div>
+            <a href="index.html" class="logo-text">Games Arc</a>
+        </div>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <nav class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="intel-mac.html"><i class="fab fa-apple"></i> Intel Mac Games</a></li>
+                <li><a href="arm-mac.html"><i class="fab fa-apple"></i> ARM Mac Games</a></li>
+                <li><a href="pc-games.html"><i class="fas fa-desktop"></i> PC Games</a></li>
+                <li><a href="premium-games.html"><i class="fas fa-crown"></i> Premium Games</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Privacy Policy</h1>
+        <p>Your privacy is important to us. Learn how we collect, use, and protect your information.</p>
+    </div>
+
+    <!-- Privacy Content -->
+    <div class="container privacy-content">
+        <div class="privacy-section">
+            <h2>1. Information We Collect</h2>
+            <p>Games Arc collects information to provide better services to our users. The types of information we collect include:</p>
+            
+            <h3>1.1 Information You Provide</h3>
+            <ul>
+                <li>Contact information when you communicate with us via Telegram, Discord, or email</li>
+                <li>Game preferences and download history</li>
+                <li>Payment information for premium game purchases (processed through third-party services)</li>
+                <li>Feedback and support requests</li>
+            </ul>
+            
+            <h3>1.2 Automatically Collected Information</h3>
+            <ul>
+                <li>IP address and browser type</li>
+                <li>Pages visited and time spent on our website</li>
+                <li>Download statistics and game preferences</li>
+                <li>Device information (operating system, screen resolution)</li>
+            </ul>
+            
+            <h2>2. How We Use Your Information</h2>
+            <p>We use the information we collect to:</p>
+            <ul>
+                <li>Provide, maintain, and improve our services</li>
+                <li>Process premium game purchases</li>
+                <li>Respond to your questions and provide customer support</li>
+                <li>Send updates about new games and features</li>
+                <li>Monitor and analyze usage patterns to improve user experience</li>
+                <li>Detect, prevent, and address technical issues</li>
+            </ul>
+            
+            <h2>3. Information Sharing</h2>
+            <p>We do not sell, trade, or rent your personal information to third parties. We may share information only in the following circumstances:</p>
+            <ul>
+                <li>With your consent</li>
+                <li>To comply with legal obligations</li>
+                <li>To protect the rights and safety of Games Arc and our users</li>
+                <li>With service providers who assist in operating our website (under confidentiality agreements)</li>
+            </ul>
+            
+            <h2>4. Data Security</h2>
+            <p>We implement appropriate security measures to protect your personal information:</p>
+            <ul>
+                <li>Encryption of sensitive data</li>
+                <li>Regular security audits</li>
+                <li>Secure payment processing through trusted third-party services</li>
+                <li>Limited access to personal information to authorized personnel only</li>
+            </ul>
+            <p>However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+            
+            <h2>5. Third-Party Services</h2>
+            <p>Our website may contain links to third-party services:</p>
+            <ul>
+                <li>Telegram for communication</li>
+                <li>Discord for community interaction</li>
+                <li>Payment processors for premium game purchases</li>
+                <li>Download hosting services (Akira Box, Media Fire, etc.)</li>
+            </ul>
+            <p>These third parties have their own privacy policies, and we encourage you to review them.</p>
+            
+            <h2>6. Cookies and Tracking</h2>
+            <p>We use cookies and similar tracking technologies to:</p>
+            <ul>
+                <li>Remember your preferences</li>
+                <li>Analyze website traffic</li>
+                <li>Improve user experience</li>
+            </ul>
+            <p>You can control cookie settings through your browser preferences.</p>
+            
+            <h2>7. Children's Privacy</h2>
+            <p>Our services are not directed to individuals under the age of 13. We do not knowingly collect personal information from children under 13. If you become aware that a child has provided us with personal information, please contact us.</p>
+            
+            <h2>8. Your Rights</h2>
+            <p>Depending on your location, you may have the following rights regarding your personal information:</p>
+            <ul>
+                <li>Right to access your personal information</li>
+                <li>Right to correct inaccurate information</li>
+                <li>Right to request deletion of your information</li>
+                <li>Right to object to processing of your information</li>
+                <li>Right to data portability</li>
+            </ul>
+            <p>To exercise these rights, please contact us using the information in the "Contact Us" section.</p>
+            
+            <h2>9. Changes to This Privacy Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+            
+            <h2>10. Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us:</p>
+            <ul>
+                <li>Email: privacy@gamesarc.com</li>
+                <li>Telegram: @Gamesarc_Community</li>
+                <li>Discord: GamesArc</li>
+            </ul>
+        </div>
+        
+        <div class="last-updated">
+            <p>Last updated: December 1, 2023</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="logo-container" style="justify-content: flex-start; margin-bottom: 1.5rem;">
+                    <div class="logo-img">GA</div>
+                    <a href="index.html" class="logo-text">Games Arc</a>
+                </div>
+                <p style="color: var(--text-gray);">Your ultimate destination for downloading games for ARM Mac, Intel Mac, and PC.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="intel-mac.html">Intel Mac Games</a></li>
+                    <li><a href="arm-mac.html">ARM Mac Games</a></li>
+                    <li><a href="pc-games.html">PC Games</a></li>
+                    <li><a href="premium-games.html">Premium Games</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p style="color: var(--text-gray); margin-bottom: 1rem;"><i class="fas fa-envelope"></i> support@gamesarc.com</p>
+                <p style="color: var(--text-gray); margin-bottom: 1.5rem;"><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                
+                <h3 style="margin-top: 2rem;">Join Our Community</h3>
+                <div class="social-links">
+                    <a href="https://t.me/Gamesarc_Community" target="_blank" title="Telegram: Gamesarc_Community"><i class="fab fa-telegram"></i></a>
+                    <a href="https://discord.gg/GamesArc" target="_blank" title="Discord: GamesArc"><i class="fab fa-discord"></i></a>
+                    <a href="mailto:support@gamesarc.com" title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 1rem;">All premium games can be purchased via Telegram and Discord. Replies within 24 hours.</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Games Arc. All rights reserved. All trademarks are property of their respective owners.</p>
+            <p style="margin-top: 0.5rem;">This website is for demonstration purposes only.</p>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        // Initialize the page
+        function init() {
+            setupEventListeners();
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Mobile Navigation Toggle
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

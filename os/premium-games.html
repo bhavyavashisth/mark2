@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PC Games | Games Arc</title>
+    <title>Premium Games | Games Arc</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -196,33 +196,95 @@
             margin: 0 auto;
         }
 
-        /* OS Banner */
-        .os-banner {
-            background: linear-gradient(135deg, rgba(93, 63, 211, 0.2), rgba(14, 165, 233, 0.2));
+        /* Premium Banner */
+        .premium-banner {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 149, 0, 0.2));
             padding: 60px 20px;
             text-align: center;
             border-radius: 15px;
             margin: 3rem 0;
-            border: 2px solid rgba(93, 63, 211, 0.3);
+            border: 2px solid rgba(255, 215, 0, 0.3);
         }
 
-        .os-banner i {
+        .premium-banner i {
             font-size: 4rem;
             margin-bottom: 1rem;
-            color: var(--primary-blue);
+            color: #ffd700;
         }
 
-        .os-banner h2 {
+        .premium-banner h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
             color: var(--text-light);
         }
 
-        .os-banner p {
+        .premium-banner p {
             color: var(--text-gray);
             font-size: 1.1rem;
             max-width: 800px;
             margin: 0 auto;
+        }
+
+        /* Price Cards */
+        .price-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .price-card {
+            background: linear-gradient(135deg, var(--card-bg), rgba(26, 26, 46, 0.7));
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            transition: var(--transition);
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .price-card.featured {
+            border: 2px solid var(--primary-purple);
+            background: linear-gradient(135deg, rgba(93, 63, 211, 0.2), var(--card-bg));
+        }
+
+        .price-amount {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        .price-card h3 {
+            color: var(--secondary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .price-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .price-card li {
+            margin-bottom: 10px;
+            color: var(--text-gray);
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .price-card li:before {
+            content: "✓";
+            color: #4ecdc4;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
         }
 
         /* Games Container */
@@ -247,7 +309,7 @@
 
         .game-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px var(--hover-glow);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2);
         }
 
         .game-image {
@@ -385,6 +447,22 @@
             margin-bottom: 15px;
         }
 
+        /* Contact Info */
+        .contact-info {
+            background-color: var(--card-bg);
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            text-align: center;
+            border-left: 4px solid #ffd700;
+        }
+
+        .contact-info h2 {
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
         /* Footer */
         footer {
             background-color: #0a0a1a;
@@ -458,65 +536,7 @@
             font-size: 0.9rem;
         }
 
-        /* Modal for premium games */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1100;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background-color: var(--secondary-dark);
-            padding: 2rem;
-            border-radius: 15px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            border: 2px solid var(--primary-purple);
-            position: relative;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            color: var(--text-gray);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .close-modal:hover {
-            color: var(--secondary-blue);
-        }
-
-        .modal h2 {
-            margin-bottom: 1rem;
-            color: var(--secondary-blue);
-        }
-
-        .modal p {
-            margin-bottom: 1.5rem;
-            color: var(--text-gray);
-        }
-
-        .price-tag {
-            background: linear-gradient(to right, #ffd700, #ff9500);
-            color: var(--primary-dark);
-            padding: 10px 25px;
-            border-radius: 30px;
-            font-weight: bold;
-            display: inline-block;
-            margin: 10px 0;
-        }
-
+        /* CTA Button */
         .cta-button {
             display: inline-block;
             padding: 12px 30px;
@@ -537,34 +557,14 @@
             box-shadow: 0 10px 25px rgba(93, 63, 211, 0.6);
         }
 
-        /* Genre Filters */
-        .genre-filters {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 2rem 0;
-            flex-wrap: wrap;
+        .premium-button {
+            background: linear-gradient(to right, #ffd700, #ff9500);
+            color: var(--primary-dark);
+            font-weight: bold;
         }
 
-        .genre-filter {
-            padding: 10px 25px;
-            background-color: var(--card-bg);
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transition);
-            border: 2px solid transparent;
-            font-weight: 600;
-        }
-
-        .genre-filter.active {
-            background: linear-gradient(to right, var(--primary-purple), var(--primary-blue));
-            color: white;
-            border-color: var(--secondary-purple);
-        }
-
-        .genre-filter:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(93, 63, 211, 0.3);
+        .premium-button:hover {
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
         }
 
         /* Responsive */
@@ -577,7 +577,7 @@
                 font-size: 1rem;
             }
             
-            .os-banner h2 {
+            .premium-banner h2 {
                 font-size: 2rem;
             }
             
@@ -585,14 +585,8 @@
                 grid-template-columns: 1fr;
             }
             
-            .genre-filters {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .genre-filter {
-                width: 80%;
-                text-align: center;
+            .price-cards {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -625,35 +619,92 @@
 
     <!-- Page Header -->
     <div class="page-header">
-        <h1>PC Games</h1>
-        <p>Download the latest games for Windows PCs</p>
+        <h1>Premium Games</h1>
+        <p>Access our exclusive collection of premium games at affordable prices</p>
     </div>
 
-    <!-- OS Banner -->
+    <!-- Premium Banner -->
     <div class="container">
-        <div class="os-banner">
-            <i class="fas fa-desktop"></i>
-            <h2>PC Games Collection</h2>
-            <p>Complete collection of Windows-compatible games with support for Windows 10 & 11</p>
+        <div class="premium-banner">
+            <i class="fas fa-crown"></i>
+            <h2>Premium Games Collection</h2>
+            <p>All premium games can be purchased from our Telegram and Discord channels. Replies are given within 24 hours. Prices range from $2 to $3 per game.</p>
         </div>
     </div>
 
-    <!-- Genre Filters -->
+    <!-- Price Cards -->
     <div class="container">
-        <div class="genre-filters">
-            <div class="genre-filter active" onclick="filterGames('all')">All Games</div>
-            <div class="genre-filter" onclick="filterGames('action')">Action</div>
-            <div class="genre-filter" onclick="filterGames('rpg')">RPG</div>
-            <div class="genre-filter" onclick="filterGames('strategy')">Strategy</div>
-            <div class="genre-filter" onclick="filterGames('fps')">FPS</div>
-            <div class="genre-filter" onclick="filterGames('racing')">Racing</div>
+        <div class="price-cards">
+            <div class="price-card">
+                <h3>Basic Package</h3>
+                <div class="price-amount">$2</div>
+                <p>per game</p>
+                <ul>
+                    <li>Direct download link</li>
+                    <li>Standard support</li>
+                    <li>Game updates for 30 days</li>
+                    <li>Verified safe download</li>
+                </ul>
+                <button class="cta-button premium-button" onclick="contactForPurchase('Basic Package')">Purchase Now</button>
+            </div>
+            
+            <div class="price-card featured">
+                <h3>Premium Package</h3>
+                <div class="price-amount">$3</div>
+                <p>per game</p>
+                <ul>
+                    <li>Direct download link</li>
+                    <li>Priority support</li>
+                    <li>Game updates for 90 days</li>
+                    <li>Verified safe download</li>
+                    <li>Additional game content</li>
+                    <li>Installation guide</li>
+                </ul>
+                <button class="cta-button premium-button" onclick="contactForPurchase('Premium Package')">Purchase Now</button>
+            </div>
+            
+            <div class="price-card">
+                <h3>Bundle Package</h3>
+                <div class="price-amount">$5</div>
+                <p>for 3 games</p>
+                <ul>
+                    <li>3 game downloads</li>
+                    <li>Priority support</li>
+                    <li>Game updates for 60 days</li>
+                    <li>Verified safe downloads</li>
+                    <li>Best value offer</li>
+                </ul>
+                <button class="cta-button premium-button" onclick="contactForPurchase('Bundle Package')">Purchase Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="container">
+        <div class="contact-info">
+            <h2>How to Purchase Premium Games</h2>
+            <p style="color: var(--text-gray); margin-bottom: 1.5rem; font-size: 1.1rem;">
+                Contact us through Telegram or Discord with the game name and package you want to purchase.
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                <a href="https://t.me/Gamesarc_Community" target="_blank" class="cta-button" style="padding: 15px 40px;">
+                    <i class="fab fa-telegram"></i> Telegram: @Gamesarc_Community
+                </a>
+                <a href="https://discord.gg/GamesArc" target="_blank" class="cta-button" style="padding: 15px 40px; background: linear-gradient(to right, #5865F2, #9b59b6);">
+                    <i class="fab fa-discord"></i> Discord: GamesArc
+                </a>
+            </div>
+            <p style="color: var(--text-gray); margin-top: 2rem; font-size: 0.9rem;">
+                <i class="fas fa-clock"></i> We respond within 24 hours
+            </p>
         </div>
     </div>
 
     <!-- Games Container -->
     <div class="container">
+        <h2 style="text-align: center; margin-bottom: 2rem; color: #ffd700; font-size: 2.5rem;">Premium Games Collection</h2>
         <div class="games-container" id="games-container">
-            <!-- Games will be loaded here by JavaScript -->
+            <!-- Premium games will be loaded here -->
         </div>
     </div>
 
@@ -702,96 +753,32 @@
         </div>
     </footer>
 
-    <!-- Premium Game Modal -->
-    <div class="modal" id="premiumModal">
-        <div class="modal-content">
-            <div class="close-modal" id="closeModal">&times;</div>
-            <h2>Premium Game Access</h2>
-            <p>This game is part of our premium collection. To download this game, please contact us via Telegram or Discord.</p>
-            <div class="price-tag">$2 - $3 per game</div>
-            <p>All premium games are available at affordable prices with full customer support.</p>
-            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 1.5rem;">
-                <a href="https://t.me/Gamesarc_Community" target="_blank" class="cta-button" style="padding: 10px 25px;"><i class="fab fa-telegram"></i> Telegram</a>
-                <a href="https://discord.gg/GamesArc" target="_blank" class="cta-button" style="padding: 10px 25px; background: linear-gradient(to right, #5865F2, #9b59b6);"><i class="fab fa-discord"></i> Discord</a>
-            </div>
-            <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--text-gray);">Telegram: @Gamesarc_Community | Discord: GamesArc</p>
-        </div>
-    </div>
-
     <script>
-        // Game Data for PC Games
-        const pcGames = [
+        // Premium Games Data
+        const premiumGames = [
             {
-                id: 1,
-                name: "Cyberpunk 2077",
-                platforms: ["pc"],
-                image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                description: "An open-world RPG set in Night City, a megalopolis obsessed with power and body modifications.",
-                rating: 4.5,
-                downloads: "1.2M",
-                genre: "action",
-                premium: false,
-                page: "game-cyberpunk2077.html"
-            },
-            {
-                id: 2,
-                name: "Elden Ring",
-                platforms: ["pc"],
-                image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1171&q=80",
-                description: "A fantasy action-RPG adventure set within a world created by Hidetaka Miyazaki and George R. R. Martin.",
+                id: 3,
+                name: "The Last of Us Part I",
+                platforms: ["pc", "mac-arm"],
+                image: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+                description: "Survive a post-pandemic world in this critically acclaimed action-adventure game.",
                 rating: 5,
-                downloads: "950K",
-                genre: "rpg",
-                premium: false,
-                page: "game-eldenring.html"
-            },
-            {
-                id: 6,
-                name: "God of War",
-                platforms: ["pc"],
-                image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                description: "Kratos and Atreus journey through Norse realms in this acclaimed action game.",
-                rating: 5,
-                downloads: "1.8M",
+                downloads: "800K",
                 genre: "action",
-                premium: false,
-                page: "game-godofwar.html"
+                premium: true,
+                price: "$3"
             },
             {
-                id: 8,
-                name: "Call of Duty: Warzone",
-                platforms: ["pc"],
-                image: "https://images.unsplash.com/photo-1512138664757-360e0aad5132?ixlib=rb-4.0.3&auto=format&fit=crop&w=1171&q=80",
-                description: "Free-to-play battle royale video game in the Call of Duty series.",
-                rating: 4,
-                downloads: "3.2M",
-                genre: "fps",
-                premium: false,
-                page: "game-warzone.html"
-            },
-            {
-                id: 9,
-                name: "Minecraft",
-                platforms: ["pc"],
-                image: "https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                description: "Build, explore and survive in the blocky world of Minecraft.",
+                id: 7,
+                name: "Spider-Man: Miles Morales",
+                platforms: ["pc", "mac-arm"],
+                image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1265&q=80",
+                description: "Miles Morales discovers explosive powers that set him apart from his mentor, Peter Parker.",
                 rating: 4.5,
-                downloads: "4.5M",
-                genre: "strategy",
-                premium: false,
-                page: "game-minecraft.html"
-            },
-            {
-                id: 10,
-                name: "Grand Theft Auto V",
-                platforms: ["pc"],
-                image: "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                description: "Three criminals pull off a series of heists while under pressure from a government agency.",
-                rating: 4.5,
-                downloads: "3.5M",
+                downloads: "1.1M",
                 genre: "action",
-                premium: false,
-                page: "game-gta5.html"
+                premium: true,
+                price: "$2"
             },
             {
                 id: 12,
@@ -803,32 +790,43 @@
                 downloads: "1.3M",
                 genre: "racing",
                 premium: true,
-                price: "$2",
-                page: "game-forza5.html"
+                price: "$2"
             },
             {
-                id: 15,
-                name: "Starfield",
-                platforms: ["pc"],
-                image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=1171&q=80",
-                description: "Next generation role-playing game set amongst the stars.",
-                rating: 4,
-                downloads: "1.2M",
+                id: 14,
+                name: "Resident Evil 4 Remake",
+                platforms: ["pc", "mac-arm"],
+                image: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+                description: "Survival horror game that reimagines the 2005 original Resident Evil 4.",
+                rating: 4.5,
+                downloads: "950K",
+                genre: "horror",
+                premium: true,
+                price: "$3"
+            },
+            {
+                id: 17,
+                name: "Diablo IV",
+                platforms: ["pc", "mac-intel"],
+                image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1171&q=80",
+                description: "Action RPG where you fight against the minions of Hell.",
+                rating: 4.5,
+                downloads: "1.7M",
                 genre: "rpg",
-                premium: false,
-                page: "game-starfield.html"
+                premium: true,
+                price: "$3"
             },
             {
-                id: 18,
-                name: "Counter-Strike 2",
-                platforms: ["pc"],
-                image: "https://images.unsplash.com/photo-1512138664757-360e0aad5132?ixlib=rb-4.0.3&auto=format&fit=crop&w=1171&q=80",
-                description: "The largest technical leap forward in Counter-Strike's history.",
-                rating: 4,
-                downloads: "5.2M",
-                genre: "fps",
-                premium: false,
-                page: "game-cs2.html"
+                id: 19,
+                name: "Dead Space Remake",
+                platforms: ["pc", "mac-arm"],
+                image: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+                description: "A remake of the 2008 survival horror game Dead Space.",
+                rating: 4.5,
+                downloads: "850K",
+                genre: "horror",
+                premium: true,
+                price: "$3"
             }
         ];
 
@@ -836,14 +834,11 @@
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
         const gamesContainer = document.getElementById('games-container');
-        const premiumModal = document.getElementById('premiumModal');
-        const closeModal = document.getElementById('closeModal');
-        const genreFilters = document.querySelectorAll('.genre-filter');
 
         // Initialize the page
         function init() {
             setupEventListeners();
-            loadPCGames('all');
+            loadPremiumGames();
         }
 
         // Setup event listeners
@@ -853,53 +848,21 @@
                 hamburger.classList.toggle('active');
                 navMenu.classList.toggle('active');
             });
-            
-            // Close modal
-            closeModal.addEventListener('click', () => {
-                premiumModal.style.display = 'none';
-            });
-            
-            // Close modal when clicking outside
-            window.addEventListener('click', (e) => {
-                if (e.target === premiumModal) {
-                    premiumModal.style.display = 'none';
-                }
-            });
         }
 
-        // Load PC games with filtering
-        function loadPCGames(genre) {
-            let filteredGames = pcGames;
-            
-            if (genre !== 'all') {
-                filteredGames = pcGames.filter(game => game.genre === genre);
-            }
-            
+        // Load premium games
+        function loadPremiumGames() {
             if (gamesContainer) {
-                gamesContainer.innerHTML = filteredGames.map(game => createGameCard(game)).join('');
+                gamesContainer.innerHTML = premiumGames.map(game => createGameCard(game)).join('');
                 
                 // Add click events to game cards
                 gamesContainer.querySelectorAll('.game-card').forEach((card, index) => {
                     card.addEventListener('click', function() {
-                        const game = filteredGames[index];
-                        if (game.premium) {
-                            premiumModal.style.display = 'flex';
-                        } else {
-                            window.location.href = game.page;
-                        }
+                        const game = premiumGames[index];
+                        contactForPurchase(game.name);
                     });
                 });
             }
-        }
-
-        // Filter games by genre
-        function filterGames(genre) {
-            // Update active filter
-            genreFilters.forEach(filter => filter.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Load filtered games
-            loadPCGames(genre);
         }
 
         // Create game card HTML
@@ -910,19 +873,13 @@
             // Generate platform tags
             const platformTags = game.platforms.map(platform => {
                 if (platform === 'pc') return '<span class="platform-tag pc">PC</span>';
+                if (platform === 'mac-intel') return '<span class="platform-tag mac-intel">Intel Mac</span>';
+                if (platform === 'mac-arm') return '<span class="platform-tag mac-arm">ARM Mac</span>';
                 return '';
             }).join('');
             
-            const premiumOverlay = game.premium ? `
-                <div class="premium-overlay">
-                    <div class="premium-tag">Premium</div>
-                    <div class="lock-icon"><i class="fas fa-lock"></i></div>
-                    <p>Contact us to unlock</p>
-                </div>
-            ` : '';
-            
             return `
-                <div class="game-card ${game.premium ? 'premium-game' : ''}" data-game-id="${game.id}">
+                <div class="game-card premium-game" data-game-id="${game.id}">
                     <div class="game-image" style="background-image: url('${game.image}');">
                         <div class="game-name">${game.name}</div>
                         <div class="game-details">
@@ -936,9 +893,19 @@
                             <div class="game-downloads">
                                 <i class="fas fa-download"></i> ${game.downloads} downloads
                             </div>
+                            <div style="margin-top: 10px; color: #ffd700; font-weight: bold;">
+                                <i class="fas fa-tag"></i> Price: ${game.price}
+                            </div>
                         </div>
                     </div>
-                    ${premiumOverlay}
+                    <div class="premium-overlay">
+                        <div class="premium-tag">Premium</div>
+                        <div class="lock-icon"><i class="fas fa-lock"></i></div>
+                        <p>Contact us to purchase</p>
+                        <div style="margin-top: 10px; color: #ffd700; font-weight: bold;">
+                            Price: ${game.price}
+                        </div>
+                    </div>
                 </div>
             `;
         }
@@ -963,6 +930,20 @@
             }
             
             return stars;
+        }
+
+        // Contact for purchase
+        function contactForPurchase(gameName) {
+            const message = `I would like to purchase: ${gameName}`;
+            const telegramUrl = `https://t.me/Gamesarc_Community?text=${encodeURIComponent(message)}`;
+            const discordUrl = `https://discord.gg/GamesArc`;
+            
+            // Show purchase options
+            if (confirm(`To purchase "${gameName}", please contact us via:\n\n1. Telegram: @Gamesarc_Community\n2. Discord: GamesArc\n\nClick OK to open Telegram or Cancel to open Discord`)) {
+                window.open(telegramUrl, '_blank');
+            } else {
+                window.open(discordUrl, '_blank');
+            }
         }
 
         // Initialize when DOM is loaded
