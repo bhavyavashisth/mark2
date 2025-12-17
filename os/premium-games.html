@@ -390,14 +390,13 @@
         }
 
         .game-description {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;   /* future standard */
+  overflow: hidden;
+}
+
 
         .game-rating {
             color: #ffd700;
