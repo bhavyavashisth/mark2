@@ -64,11 +64,90 @@
             backdrop-filter: blur(10px);
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+        /* Logo Container */
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.logo-link:hover {
+    transform: translateY(-2px);
+}
+
+/* Logo Image Container */
+.logo-img {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+    padding: 5px;
+    box-shadow: 0 4px 12px rgba(93, 63, 211, 0.3);
+    transition: var(--transition);
+}
+
+.logo-link:hover .logo-img {
+    transform: rotate(5deg) scale(1.05);
+    box-shadow: 0 6px 20px rgba(93, 63, 211, 0.5);
+}
+
+/* Logo Text - REPLACE THE EXISTING .logo-text CLASS */
+
+
+
+.logo-main {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.logo-accent {
+    background: linear-gradient(to right, var(--primary-blue), var(--secondary-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+    .logo-img {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .logo-main {
+        font-size: 1.3rem;
+    }
+    
+    .logo-accent {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo-main {
+        font-size: 1.1rem;
+    }
+    
+    .logo-accent {
+        font-size: 1.5rem;
+    }
+}
 
         .logo-img {
             width: 50px;
@@ -82,14 +161,93 @@
             font-weight: bold;
         }
 
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(to right, var(--primary-blue), var(--secondary-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
+       /* Logo Container */
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.logo-link:hover {
+    transform: translateY(-2px);
+}
+
+/* Logo Image Container */
+.logo-img {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+    padding: 5px;
+    box-shadow: 0 4px 12px rgba(93, 63, 211, 0.3);
+    transition: var(--transition);
+}
+
+.logo-link:hover .logo-img {
+    transform: rotate(5deg) scale(1.05);
+    box-shadow: 0 6px 20px rgba(93, 63, 211, 0.5);
+}
+
+/* Logo Text - REPLACE THE EXISTING .logo-text CLASS */
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.logo-main {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.logo-accent {
+    background: linear-gradient(to right, var(--primary-blue), var(--secondary-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+    .logo-img {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .logo-main {
+        font-size: 1.3rem;
+    }
+    
+    .logo-accent {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo-main {
+        font-size: 1.1rem;
+    }
+    
+    .logo-accent {
+        font-size: 1.5rem;
+    }
+}
 
         /* Hamburger Menu - Same */
         .hamburger {
