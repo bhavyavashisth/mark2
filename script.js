@@ -1,10 +1,3 @@
-// script.js - Games Arc Website JavaScript
-// Place this file in the same folder as your HTML files
-
-// ======================
-// CORE FUNCTIONALITIES
-// ======================
-
 // 1. Mobile Navigation Toggle
 function initMobileMenu() {
     const hamburger = document.getElementById('hamburger');
