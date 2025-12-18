@@ -1007,8 +1007,52 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-<script src="script.js"></script>
+<!-- Simple Screenshot Display -->
+<div class="simple-screenshots">
+    <h3>Screenshots</h3>
+    <div class="screenshot-grid">
+        <div class="screenshot-item">
+            <img src="screenshots/cyberpunk/1.jpg" alt="Cyberpunk 2077 Screenshot 1" 
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+        </div>
+        <div class="screenshot-item">
+            <img src="screenshots/cyberpunk/2.jpg" alt="Cyberpunk 2077 Screenshot 2"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+        </div>
+        <div class="screenshot-item">
+            <img src="screenshots/cyberpunk/3.jpg" alt="Cyberpunk 2077 Screenshot 3"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512138664757-360e0aad5132?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+        </div>
+    </div>
+</div>
 
+<style>
+.screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.screenshot-item {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: var(--transition);
+}
+
+.screenshot-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(93, 63, 211, 0.3);
+}
+
+.screenshot-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+</style>
 
 </body>
 </html>
