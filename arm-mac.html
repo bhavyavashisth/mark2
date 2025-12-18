@@ -828,27 +828,35 @@
     </div>
 
     <!-- Games Container -->
-    <div class="container">
-        <div class="games-container" id="games-container">
-            <div class="game-card" onclick="window.location.href='game-cyberpunk2077.html'">
-                <div class="game-image" style="background-image: url('screenshots/cyberpunk/cover.jpg');">
-                    <div class="game-name">Cyberpunk 2077</div>
-                    <div class="game-details">
-                        <div class="game-platforms">
-                            <span class="platform-tag pc">PC</span>
-                            <span class="platform-tag mac-intel">Intel Mac</span>
-                            <span class="platform-tag mac-arm">ARM Mac</span>
-                        </div>
-                        <p class="game-description">An open-world RPG set in Night City, a megalopolis obsessed with power and body modifications.</p>
-                        <div class="game-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 4.5/5
-                        </div>
-                        <div class="game-downloads">
-                            <i class="fas fa-download"></i> 1.2M downloads
-                        </div>
-                    </div>
-                </div>
-            </div>
+    // Game Data (same as index.html)
+        const games = [
+            {
+                id: 1,
+                name: "Cyberpunk 2077",
+                platforms: ["pc", "mac-intel", "mac-arm"],
+                image: "screenshots/cyberpunk/cover.jpg",
+                description: "An open-world RPG set in Night City, a megalopolis obsessed with power and body modifications.",
+                rating: 4.5,
+                downloads: "1.2M",
+                genre: "action",
+                premium: false,
+                page: "game-cyberpunk2077.html"
+            },
+            {
+                id: 2,
+                name: "Elden Ring",
+                platforms: ["pc", "mac-intel"],
+                image: "screenshots/eldenring/rcover.jpg",
+                description: "A fantasy action-RPG adventure set within a world created by Hidetaka Miyazaki and George R. R. Martin.",
+                rating: 5,
+                downloads: "80",
+                genre: "rpg",
+                premium: false,
+                page: "game-eldenring.html"
+            },
+            // ... (same games data as index.html)
+        ];
+
             
             <div class="game-card premium-game" onclick="showPremiumModal()">
                 <div class="game-image" style="background-image: url('https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');">
