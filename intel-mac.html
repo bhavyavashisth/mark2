@@ -987,5 +987,29 @@
         // Initialize when DOM is loaded
         document.addEventListener('DOMContentLoaded', init);
     </script>
+    // Add to ALL pages with games
+function initSearch() {
+    const searchInput = document.getElementById('search-input');
+    const gameCards = document.querySelectorAll('.game-card');
+    
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            gameCards.forEach(card => {
+                const gameName = card.querySelector('.game-name').textContent.toLowerCase();
+                const gameDesc = card.querySelector('.game-description').textContent.toLowerCase();
+                
+                if (gameName.includes(searchTerm) || gameDesc.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = '1', 10);
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.display = 'none', 300);
+                }
+            });
+        });
+    }
+}
 </body>
 </html>
