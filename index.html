@@ -945,6 +945,47 @@
                 </div>
             </div>
         </section>
+        <!-- Add this in index.html after Top Games section -->
+<section class="ai-recommendations container">
+    <h2 class="section-title">
+        <i class="fas fa-robot"></i> AI-Powered Recommendations
+        <span class="ai-badge">Powered by AI</span>
+    </h2>
+    
+    <div class="ai-questions">
+        <div class="ai-question active" data-step="1">
+            <h3>What type of games do you enjoy?</h3>
+            <div class="ai-options">
+                <button class="ai-option" data-answer="action">Action & Adventure</button>
+                <button class="ai-option" data-answer="rpg">RPG & Story-driven</button>
+                <button class="ai-option" data-answer="strategy">Strategy & Simulation</button>
+                <button class="ai-option" data-answer="multiplayer">Multiplayer & Co-op</button>
+            </div>
+        </div>
+        
+        <div class="ai-question" data-step="2">
+            <h3>How much time do you have for gaming?</h3>
+            <div class="ai-options">
+                <button class="ai-option" data-answer="short">Short sessions (1-2 hours)</button>
+                <button class="ai-option" data-answer="medium">Medium sessions (3-5 hours)</button>
+                <button class="ai-option" data-answer="long">Long immersive sessions</button>
+            </div>
+        </div>
+        
+        <div class="ai-results" id="ai-results">
+            <!-- AI will populate recommendations here -->
+        </div>
+    </div>
+    
+    <div class="ai-progress">
+        <div class="ai-progress-bar"></div>
+        <div class="ai-step-indicator">
+            <span class="ai-step active">1</span>
+            <span class="ai-step">2</span>
+            <span class="ai-step">3</span>
+        </div>
+    </div>
+</section>
 
         <!-- More Games Section -->
         <section class="container">
