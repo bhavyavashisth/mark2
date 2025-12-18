@@ -1460,9 +1460,9 @@
                 const timer = setInterval(() => {
                     current += increment;
                     if (current >= target) {
-                        counter.textContent = counter.id === 'total-games' ? '5000+' : 
-                                             counter.id === 'total-downloads' ? '2.5M+' : 
-                                             counter.id === 'active-users' ? '150K+' : '3';
+                        counter.textContent = counter.id === 'total-games' ? '20+' : 
+                                             counter.id === 'total-downloads' ? '200+' : 
+                                             counter.id === 'active-users' ? '150+' : '3';
                         clearInterval(timer);
                     } else {
                         counter.textContent = Math.floor(current).toLocaleString();
@@ -1474,6 +1474,6 @@
         // Initialize the website when DOM is loaded
         document.addEventListener('DOMContentLoaded', init);
     </script>
-    <script src="script.js"></script>
+    
 </body>
 </html>

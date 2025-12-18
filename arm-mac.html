@@ -41,7 +41,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -61,255 +61,59 @@
             backdrop-filter: blur(10px);
         }
 
-       /* Logo Container */
-.logo-link {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    text-decoration: none;
-    transition: var(--transition);
-}
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
 
-.logo-link:hover {
-    transform: translateY(-2px);
-}
+        .logo-link:hover {
+            transform: translateY(-2px);
+        }
 
-/* Logo Image Container */
-.logo-img {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    overflow: hidden;
-    background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
-    padding: 5px;
-    box-shadow: 0 4px 12px rgba(93, 63, 211, 0.3);
-    transition: var(--transition);
-}
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+            padding: 5px;
+            box-shadow: 0 4px 12px rgba(93, 63, 211, 0.3);
+            transition: var(--transition);
+        }
 
-.logo-link:hover .logo-img {
-    transform: rotate(5deg) scale(1.05);
-    box-shadow: 0 6px 20px rgba(93, 63, 211, 0.5);
-}
+        .logo-link:hover .logo-img {
+            transform: rotate(5deg) scale(1.05);
+            box-shadow: 0 6px 20px rgba(93, 63, 211, 0.5);
+        }
 
-/* Logo Text - REPLACE THE EXISTING .logo-text CLASS */
-/* Logo Container */
-.logo-link {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    text-decoration: none;
-    transition: var(--transition);
-}
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
 
-.logo-link:hover {
-    transform: translateY(-2px);
-}
+        .logo-main {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
 
-/* Logo Image Container */
-.logo-img {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    overflow: hidden;
-    background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
-    padding: 5px;
-    box-shadow: 0 4px 12px rgba(93, 63, 211, 0.3);
-    transition: var(--transition);
-}
-
-.logo-link:hover .logo-img {
-    transform: rotate(5deg) scale(1.05);
-    box-shadow: 0 6px 20px rgba(93, 63, 211, 0.5);
-}
-
-/* Logo Text - REPLACE THE EXISTING .logo-text CLASS */
-
-
-.logo-main {
-    color: var(--text-light);
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-.logo-accent {
-    background: linear-gradient(to right, var(--primary-blue), var(--secondary-purple));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-size: 2rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-/* For mobile responsiveness */
-@media (max-width: 768px) {
-    .logo-img {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .logo-main {
-        font-size: 1.3rem;
-    }
-    
-    .logo-accent {
-        font-size: 1.7rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo-img {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .logo-main {
-        font-size: 1.1rem;
-    }
-    
-    .logo-accent {
-        font-size: 1.5rem;
-    }
-}
-
-.logo-main {
-    color: var(--text-light);
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-.logo-accent {
-    background: linear-gradient(to right, var(--primary-blue), var(--secondary-purple));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-size: 2rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-/* For mobile responsiveness */
-@media (max-width: 768px) {
-    .logo-img {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .logo-main {
-        font-size: 1.3rem;
-    }
-    
-    .logo-accent {
-        font-size: 1.7rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo-img {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .logo-main {
-        font-size: 1.1rem;
-    }
-    
-    .logo-accent {
-        font-size: 1.5rem;
-    }
-}
-
-        /* Logo Container */
-.logo-link {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.logo-link:hover {
-    transform: translateY(-2px);
-}
-
-/* Logo Image Container */
-.logo-img {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    overflow: hidden;
-    background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
-    padding: 5px;
-    box-shadow: 0 4px 12px rgba(93, 63, 211, 0.3);
-    transition: var(--transition);
-}
-
-.logo-link:hover .logo-img {
-    transform: rotate(5deg) scale(1.05);
-    box-shadow: 0 6px 20px rgba(93, 63, 211, 0.5);
-}
-
-/* Logo Text - REPLACE THE EXISTING .logo-text CLASS */
-
-
-.logo-main {
-    color: var(--text-light);
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-.logo-accent {
-    background: linear-gradient(to right, var(--primary-blue), var(--secondary-purple));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-size: 2rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-/* For mobile responsiveness */
-@media (max-width: 768px) {
-    .logo-img {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .logo-main {
-        font-size: 1.3rem;
-    }
-    
-    .logo-accent {
-        font-size: 1.7rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo-img {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .logo-main {
-        font-size: 1.1rem;
-    }
-    
-    .logo-accent {
-        font-size: 1.5rem;
-    }
-}
+        .logo-accent {
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
 
         /* Hamburger Menu */
         .hamburger {
@@ -448,6 +252,80 @@
             margin: 0 auto;
         }
 
+        /* Search and Filter Section */
+        .search-filter-section {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 15px 20px;
+            background-color: rgba(10, 10, 26, 0.5);
+            border: 2px solid var(--primary-purple);
+            border-radius: 50px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--secondary-blue);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+        }
+
+        .search-button {
+            padding: 15px 30px;
+            background: linear-gradient(to right, var(--primary-purple), var(--primary-blue));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .search-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(93, 63, 211, 0.4);
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tag {
+            padding: 8px 20px;
+            background-color: rgba(93, 63, 211, 0.2);
+            border: 2px solid transparent;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .filter-tag.active {
+            background: linear-gradient(to right, var(--primary-purple), var(--primary-blue));
+            color: white;
+            border-color: var(--secondary-purple);
+        }
+
+        .filter-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(93, 63, 211, 0.3);
+        }
+
         /* Games Container */
         .games-container {
             display: grid;
@@ -464,7 +342,7 @@
             transition: var(--transition);
             box-shadow: var(--shadow);
             position: relative;
-            height: 300px;
+            height: 350px;
             cursor: pointer;
         }
 
@@ -484,7 +362,7 @@
 
         .game-card:hover .game-image {
             transform: scale(1.05);
-            filter: brightness(0.7) saturate(1.2);
+            filter: brightness(0.8) saturate(1.2);
         }
 
         .game-name {
@@ -551,23 +429,31 @@
         }
 
         .game-description {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;   /* future standard */
-  overflow: hidden;
-}
-
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
 
         .game-rating {
             color: #ffd700;
             font-size: 0.9rem;
+            margin-bottom: 5px;
         }
 
         .game-downloads {
             color: var(--text-gray);
             font-size: 0.8rem;
             margin-top: 5px;
+        }
+
+        .screenshot-count {
+            color: #94a3b8;
+            font-size: 0.8rem;
+            margin-top: 8px;
         }
 
         /* Premium Overlay */
@@ -605,6 +491,62 @@
             font-size: 3rem;
             color: #ffd700;
             margin-bottom: 15px;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 3rem 0;
+        }
+
+        .page-button {
+            padding: 10px 20px;
+            background-color: var(--card-bg);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .page-button.active {
+            background: linear-gradient(to right, var(--primary-purple), var(--primary-blue));
+            color: white;
+            border-color: var(--secondary-purple);
+        }
+
+        .page-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(93, 63, 211, 0.3);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+            font-size: 0.9rem;
         }
 
         /* Footer */
@@ -759,6 +701,29 @@
             box-shadow: 0 10px 25px rgba(93, 63, 211, 0.6);
         }
 
+        /* Loading Animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(93, 63, 211, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary-purple);
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .page-header h1 {
@@ -776,195 +741,165 @@
             .games-container {
                 grid-template-columns: 1fr;
             }
+            
+            .search-box {
+                flex-direction: column;
+            }
+            
+            .filter-tags {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .game-card {
+                height: 300px;
+            }
+            
+            .os-banner {
+                padding: 40px 20px;
+            }
+        }
+
+        /* Wishlist Indicator */
+        .wishlist-indicator {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 3;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        .wishlist-indicator:hover {
+            background: rgba(255, 107, 107, 0.8);
+            transform: scale(1.1);
+        }
+
+        .wishlist-indicator.active {
+            background: rgba(255, 107, 107, 0.9);
+            color: white;
         }
     </style>
 </head>
 <body>
     <!-- Header with Navigation -->
-<header>
-    <div class="logo-container">
-        <a href="index.html" class="logo-link">
-            <div class="logo-img">
-                <img src="logo.png" alt="Games Arc Logo" style="width: 100%; height: 100%; object-fit: contain;">
-            </div>
-            <div class="logo-text">
-                <span class="logo-main">Games</span>
-                <span class="logo-accent">Arc</span>
-            </div>
-        </a>
-    </div>
-    
-    <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    
-    <nav class="nav-menu" id="navMenu">
-        <ul>
-            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="intel-mac.html"><i class="fab fa-apple"></i> Intel Mac Games</a></li>
-            <li><a href="arm-mac.html"><i class="fab fa-apple"></i> ARM Mac Games</a></li>
-            <li><a href="pc-games.html"><i class="fas fa-desktop"></i> PC Games</a></li>
-            <li><a href="premium-games.html"><i class="fas fa-crown"></i> Premium Games</a></li>
-            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <div class="logo-container">
+            <a href="index.html" class="logo-link">
+                <div class="logo-img">
+                    <img src="logo.png" alt="Games Arc Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">Games</span>
+                    <span class="logo-accent">Arc</span>
+                </div>
+            </a>
+        </div>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <nav class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="intel-mac.html"><i class="fab fa-apple"></i> Intel Mac Games</a></li>
+                <li><a href="arm-mac.html"><i class="fab fa-apple"></i> ARM Mac Games</a></li>
+                <li><a href="pc-games.html"><i class="fas fa-desktop"></i> PC Games</a></li>
+                <li><a href="premium-games.html"><i class="fas fa-crown"></i> Premium Games</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Page Header -->
     <div class="page-header">
         <h1>ARM Mac Games</h1>
-        <p>Download games optimized for Apple Silicon (M1, M2, M3) Mac computers</p>
+        <p>Download games optimized for Apple Silicon (M1, M2, M3) Mac computers with native performance</p>
     </div>
 
     <!-- OS Banner -->
     <div class="container">
         <div class="os-banner">
             <i class="fab fa-apple"></i>
-            <h2>ARM Mac (Apple Silicon) Games</h2>
-            <p>Native performance on M1, M2, and M3 chip Macs with optimized graphics and battery life</p>
+            <h2>Apple Silicon Optimized Games</h2>
+            <p>Native performance on M1, M2, and M3 chip Macs with optimized graphics, battery life, and thermal management</p>
+        </div>
+    </div>
+
+    <!-- Search and Filter Section -->
+    <div class="container">
+        <div class="search-filter-section">
+            <div class="search-box">
+                <input type="text" 
+                       id="game-search" 
+                       class="search-input" 
+                       placeholder="Search ARM Mac games...">
+                <button class="search-button" onclick="searchGames()">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+            
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">All Games</span>
+                <span class="filter-tag" data-filter="action">Action</span>
+                <span class="filter-tag" data-filter="rpg">RPG</span>
+                <span class="filter-tag" data-filter="strategy">Strategy</span>
+                <span class="filter-tag" data-filter="adventure">Adventure</span>
+                <span class="filter-tag" data-filter="simulation">Simulation</span>
+                <span class="filter-tag" data-filter="sports">Sports</span>
+                <span class="filter-tag" data-filter="indie">Indie</span>
+                <span class="filter-tag" data-filter="free">Free</span>
+                <span class="filter-tag" data-filter="premium">Premium</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number" id="total-games">150+</div>
+                <div class="stat-label">ARM Mac Games</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="total-downloads">2.1M+</div>
+                <div class="stat-label">Total Downloads</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="new-games">12</div>
+                <div class="stat-label">New This Month</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="free-games">85</div>
+                <div class="stat-label">Free Games</div>
+            </div>
         </div>
     </div>
 
     <!-- Games Container -->
-    // Game Data (same as index.html)
-        const games = [
-            {
-                id: 1,
-                name: "Cyberpunk 2077",
-                platforms: ["pc", "mac-intel", "mac-arm"],
-                image: "screenshots/cyberpunk/cover.jpg",
-                description: "An open-world RPG set in Night City, a megalopolis obsessed with power and body modifications.",
-                rating: 4.5,
-                downloads: "1.2M",
-                genre: "action",
-                premium: false,
-                page: "game-cyberpunk2077.html"
-            },
-            {
-                id: 2,
-                name: "Elden Ring",
-                platforms: ["pc", "mac-intel"],
-                image: "screenshots/eldenring/rcover.jpg",
-                description: "A fantasy action-RPG adventure set within a world created by Hidetaka Miyazaki and George R. R. Martin.",
-                rating: 5,
-                downloads: "80",
-                genre: "rpg",
-                premium: false,
-                page: "game-eldenring.html"
-            },
-            // ... (same games data as index.html)
-        ];
+    <div class="container">
+        <div class="games-container" id="games-container">
+            <!-- Games will be loaded here by JavaScript -->
+        </div>
+    </div>
 
-            
-            <div class="game-card premium-game" onclick="showPremiumModal()">
-                <div class="game-image" style="background-image: url('https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');">
-                    <div class="game-name">The Last of Us Part I</div>
-                    <div class="game-details">
-                        <div class="game-platforms">
-                            <span class="platform-tag pc">PC</span>
-                            <span class="platform-tag mac-arm">ARM Mac</span>
-                        </div>
-                        <p class="game-description">Survive a post-pandemic world in this critically acclaimed action-adventure game.</p>
-                        <div class="game-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 5/5
-                        </div>
-                        <div class="game-downloads">
-                            <i class="fas fa-download"></i> 800K downloads
-                        </div>
-                    </div>
-                </div>
-                <div class="premium-overlay">
-                    <div class="premium-tag">Premium</div>
-                    <div class="lock-icon"><i class="fas fa-lock"></i></div>
-                    <p>Contact us to unlock</p>
-                </div>
-            </div>
-            
-            <div class="game-card" onclick="window.location.href='game-hogwartslegacy.html'">
-                <div class="game-image" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');">
-                    <div class="game-name">Hogwarts Legacy</div>
-                    <div class="game-details">
-                        <div class="game-platforms">
-                            <span class="platform-tag pc">PC</span>
-                            <span class="platform-tag mac-intel">Intel Mac</span>
-                            <span class="platform-tag mac-arm">ARM Mac</span>
-                        </div>
-                        <p class="game-description">Experience Hogwarts in the 1800s in this open-world action RPG.</p>
-                        <div class="game-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 4.5/5
-                        </div>
-                        <div class="game-downloads">
-                            <i class="fas fa-download"></i> 1.5M downloads
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="game-card premium-game" onclick="showPremiumModal()">
-                <div class="game-image" style="background-image: url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1265&q=80');">
-                    <div class="game-name">Spider-Man: Miles Morales</div>
-                    <div class="game-details">
-                        <div class="game-platforms">
-                            <span class="platform-tag pc">PC</span>
-                            <span class="platform-tag mac-arm">ARM Mac</span>
-                        </div>
-                        <p class="game-description">Miles Morales discovers explosive powers that set him apart from his mentor, Peter Parker.</p>
-                        <div class="game-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 4.5/5
-                        </div>
-                        <div class="game-downloads">
-                            <i class="fas fa-download"></i> 1.1M downloads
-                        </div>
-                    </div>
-                </div>
-                <div class="premium-overlay">
-                    <div class="premium-tag">Premium</div>
-                    <div class="lock-icon"><i class="fas fa-lock"></i></div>
-                    <p>Contact us to unlock</p>
-                </div>
-            </div>
-            
-            <div class="game-card" onclick="window.location.href='game-minecraft.html'">
-                <div class="game-image" style="background-image: url('https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');">
-                    <div class="game-name">Minecraft</div>
-                    <div class="game-details">
-                        <div class="game-platforms">
-                            <span class="platform-tag pc">PC</span>
-                            <span class="platform-tag mac-intel">Intel Mac</span>
-                            <span class="platform-tag mac-arm">ARM Mac</span>
-                        </div>
-                        <p class="game-description">Build, explore and survive in the blocky world of Minecraft.</p>
-                        <div class="game-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 4.5/5
-                        </div>
-                        <div class="game-downloads">
-                            <i class="fas fa-download"></i> 4.5M downloads
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="game-card" onclick="window.location.href='game-witcher3.html'">
-                <div class="game-image" style="background-image: url('https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');">
-                    <div class="game-name">The Witcher 3: Wild Hunt</div>
-                    <div class="game-details">
-                        <div class="game-platforms">
-                            <span class="platform-tag pc">PC</span>
-                            <span class="platform-tag mac-intel">Intel Mac</span>
-                            <span class="platform-tag mac-arm">ARM Mac</span>
-                        </div>
-                        <p class="game-description">A story-driven open world RPG set in a dark fantasy universe.</p>
-                        <div class="game-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 5/5
-                        </div>
-                        <div class="game-downloads">
-                            <i class="fas fa-download"></i> 2.8M downloads
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Pagination -->
+    <div class="container">
+        <div class="pagination" id="pagination">
+            <!-- Pagination will be generated by JavaScript -->
         </div>
     </div>
 
@@ -995,7 +930,8 @@
             <div class="footer-contact">
                 <h3>Contact Us</h3>
                 <p style="color: var(--text-gray); margin-bottom: 1rem;"><i class="fas fa-envelope"></i> support@gamesarc.com</p>
-               
+                <p style="color: var(--text-gray); margin-bottom: 1.5rem;"><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                
                 <h3 style="margin-top: 2rem;">Join Our Community</h3>
                 <div class="social-links">
                     <a href="https://t.me/Gamesarc_Community" target="_blank" title="Telegram: Gamesarc_Community"><i class="fab fa-telegram"></i></a>
@@ -1007,7 +943,7 @@
         </div>
         
         <div class="copyright">
-            <p>&copy; 2023 Games Arc. All rights reserved. All trademarks are property of their respective owners.</p>
+            <p>&copy; <span id="current-year">2023</span> Games Arc. All rights reserved. All trademarks are property of their respective owners.</p>
             <p style="margin-top: 0.5rem;">This website is for demonstration purposes only.</p>
         </div>
     </footer>
@@ -1029,45 +965,107 @@
     </div>
 
     <script>
-        // DOM Elements
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('navMenu');
-        const premiumModal = document.getElementById('premiumModal');
-        const closeModal = document.getElementById('closeModal');
+        // ====================
+        // LARGE GAMES LIBRARY
+        // ====================
+        const armMacGames = [
+            // Action Games
+            {
+                id: 1,
+                name: "Cyberpunk 2077",
+                platforms: ["pc", "mac-intel", "mac-arm"],
+                // CUSTOM SCREENSHOT PATH - Replace with your images
+                image: "screenshots/cyberpunk/cover.jpg",
+                screenshots: [
+                    "screenshots/cyberpunk/1.jpg",
+                    "screenshots/cyberpunk/2.jpg",
+                    "screenshots/cyberpunk/3.jpg",
+                    "screenshots/cyberpunk/4.jpg"
+                ],
+                description: "An open-world RPG set in Night City, a megalopolis obsessed with power and body modifications.",
+                rating: 4.5,
+                downloads: "1.2M",
+                genre: "action",
+                premium: false,
+                price: "Free",
+                page: "game-cyberpunk2077.html"
+            },
+            {
+                id: 2,
+                name: "The Last of Us Part I",
+                platforms: ["pc", "mac-arm"],
+                // CUSTOM SCREENSHOT PATH - Replace with your images
+                image: "screenshots/lastofus/cover.jpg",
+                screenshots: [
+                    "screenshots/lastofus/1.jpg",
+                    "screenshots/lastofus/2.jpg",
+                    "screenshots/lastofus/3.jpg"
+                ],
+                description: "Survive a post-pandemic world in this critically acclaimed action-adventure game.",
+                rating: 5,
+                downloads: "850K",
+                genre: "action",
+                premium: true,
+                price: "$3",
+                page: "game-thelastofus.html"
+            },
+            {
+                id: 3,
+                name: "Spider-Man: Miles Morales",
+                platforms: ["pc", "mac-arm"],
+                // CUSTOM SCREENSHOT PATH - Replace with your images
+                image: "screenshots/spiderman/cover.jpg",
+                screenshots: [
+                    "screenshots/spiderman/1.jpg",
+                    "screenshots/spiderman/2.jpg",
+                    "screenshots/spiderman/3.jpg",
+                    "screenshots/spiderman/4.jpg"
+                ],
+                description: "Miles Morales discovers explosive powers that set him apart from his mentor, Peter Parker.",
+                rating: 4.5,
+                downloads: "1.1M",
+                genre: "action",
+                premium: true,
+                price: "$2",
+                page: "game-spiderman.html"
+            },
+            {
+                id: 4,
+                name: "Resident Evil 4 Remake",
+                platforms: ["pc", "mac-arm"],
+                // CUSTOM SCREENSHOT PATH - Replace with your images
+                image: "screenshots/re4/cover.jpg",
+                screenshots: [
+                    "screenshots/re4/1.jpg",
+                    "screenshots/re4/2.jpg",
+                    "screenshots/re4/3.jpg"
+                ],
+                description: "Survival horror game that reimagines the 2005 original Resident Evil 4.",
+                rating: 4.5,
+                downloads: "920K",
+                genre: "action",
+                premium: true,
+                price: "$3",
+                page: "game-re4.html"
+            },
+            {
+                id: 5,
+                name: "Dead Space Remake",
+                platforms: ["pc", "mac-arm"],
+                // CUSTOM SCREENSHOT PATH - Replace with your images
+                image: "screenshots/deadspace/cover.jpg",
+                screenshots: [
+                    "screenshots/deadspace/1.jpg",
+                    "screenshots/deadspace/2.jpg",
+                    "screenshots/deadspace/3.jpg"
+                ],
+                description: "A remake of the 2008 survival horror game Dead Space.",
+                rating: 4.5,
+                downloads: "780K",
+                genre: "action",
+                premium: true,
+                price: "$3",
+                page: "game-deadspace.html"
+            },
 
-        // Initialize the page
-        function init() {
-            setupEventListeners();
-        }
-
-        // Setup event listeners
-        function setupEventListeners() {
-            // Mobile Navigation Toggle
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-            
-            // Close modal
-            closeModal.addEventListener('click', () => {
-                premiumModal.style.display = 'none';
-            });
-            
-            // Close modal when clicking outside
-            window.addEventListener('click', (e) => {
-                if (e.target === premiumModal) {
-                    premiumModal.style.display = 'none';
-                }
-            });
-        }
-
-        // Show premium modal
-        function showPremiumModal() {
-            premiumModal.style.display = 'flex';
-        }
-
-        // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', init);
-    </script>
-</body>
-</html>
+            //
