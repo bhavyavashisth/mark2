@@ -953,5 +953,49 @@ function animateDownloadCounter() {
         }, 20);
     });
 }
+// Add to game pages
+function initRatingSystem() {
+    const ratingStars = document.querySelectorAll('.rating-star');
+    const ratingValue = document.getElementById('rating-value');
+    
+    ratingStars.forEach(star => {
+        star.addEventListener('click', function() {
+            const rating = this.getAttribute('data-rating');
+            
+            // Update stars
+            ratingStars.forEach(s => {
+                s.classList.remove('active');
+                if (s.getAttribute('data-rating') <= rating) {
+                    s.classList.add('active');
+                }
+            });
+            
+            // Save to localStorage
+            localStorage.setItem('user-rating', rating);
+            
+            // Update display
+            if (ratingValue) {
+                ratingValue.textContent = `${rating}/5`;
+            }
+            
+            // Show thank you message
+            alert(`Thank you for rating this game ${rating} stars!`);
+        });
+        
+        star.addEventListener('mouseover', function() {
+            const rating = this.getAttribute('data-rating');
+            ratingStars.forEach(s => {
+                s.classList.remove('hover');
+                if (s.getAttribute('data-rating') <= rating) {
+                    s.classList.add('hover');
+                }
+            });
+        });
+        
+        star.addEventListener('mouseout', function() {
+            ratingStars.forEach(s => s.classList.remove('hover'));
+        });
+    });
+}
 </body>
 </html>
