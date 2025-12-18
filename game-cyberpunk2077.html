@@ -933,14 +933,37 @@
         // Initialize when DOM is loaded
         document.addEventListener('DOMContentLoaded', init);
     </script>
-    // Add to game pages
+<!-- Your HTML content here -->
+
+<!-- Add this JUST BEFORE the closing </body> tag -->
+<script>
+// ========== GAME SEARCH FUNCTIONALITY ==========
+function initSearch() {
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const gameCards = document.querySelectorAll('.game-card');
+            
+            gameCards.forEach(card => {
+                const gameName = card.querySelector('.game-name').textContent.toLowerCase();
+                if (gameName.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    }
+}
+
+// ========== DOWNLOAD COUNTER ANIMATION ==========
 function animateDownloadCounter() {
-    const counters = document.querySelectorAll('.download-count');
-    
-    counters.forEach(counter => {
+    const counter = document.querySelector('.download-count');
+    if (counter) {
         const target = parseInt(counter.textContent.replace(/,/g, ''));
-        const increment = target / 100;
         let current = 0;
+        const increment = target / 100;
         
         const timer = setInterval(() => {
             current += increment;
@@ -948,10 +971,44 @@ function animateDownloadCounter() {
                 counter.textContent = target.toLocaleString();
                 clearInterval(timer);
             } else {
-                counter.textContent = Math.floor(current).toLocaleString();
+                counter.text.textContent = Math.floor(current).toLocaleString();
             }
         }, 20);
-    });
+    }
 }
+
+// ========== INITIALIZE EVERYTHING ==========
+document.addEventListener('DOMContentLoaded', function() {
+    initSearch();
+    animateDownloadCounter();
+    
+    // Add click handlers for download buttons
+    document.querySelectorAll('.download-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const service = this.querySelector('h3').textContent;
+            alert(`Starting download via ${service}...\n\nIn a real website, this would start the actual download.`);
+        });
+    });
+    
+    // Add hover effects to game cards
+    document.querySelectorAll('.game-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const gameName = this.querySelector('.game-name').textContent;
+            const isPremium = this.classList.contains('premium-game');
+            
+            if (isPremium) {
+                document.getElementById('premiumModal').style.display = 'flex';
+            } else {
+                // For non-premium games, you would navigate to their page
+                alert(`Opening ${gameName} page...`);
+            }
+        });
+    });
+});
+</script>
+
+</body> <!-- This is the closing body tag -->
+</html>
 </body>
 </html>
