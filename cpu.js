@@ -395,3 +395,21 @@ async function showResults() {
     
     results.classList.add('show');
 }
+// In script.js
+function initCPUScanner() {
+    const scanner = new HardwareScanner();
+    
+    // Add event listeners
+    document.querySelectorAll('.platform-option').forEach(button => {
+        button.addEventListener('click', async function() {
+            // Your scanner logic here
+        });
+    });
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('.compatibility-scanner')) {
+        initCPUScanner();
+    }
+});
