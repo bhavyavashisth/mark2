@@ -1079,7 +1079,61 @@
                 </div>
             </div>
         </section>
+    <section class="compatibility-scanner container">
+    <h2 class="section-title">
+        <i class="fas fa-search"></i> System Compatibility Scanner
+    </h2>
     
+    <div class="scanner-wizard">
+        <div class="scanner-step active" data-step="1">
+            <h3>Select Your Platform</h3>
+            <div class="platform-options">
+                <button class="platform-option" data-platform="windows">
+                    <i class="fab fa-windows"></i> Windows
+                </button>
+                <button class="platform-option" data-platform="mac-intel">
+                    <i class="fab fa-apple"></i> Intel Mac
+                </button>
+                <button class="platform-option" data-platform="mac-arm">
+                    <i class="fab fa-apple"></i> Apple Silicon
+                </button>
+            </div>
+        </div>
+        
+        <div class="scanner-step" data-step="2">
+            <h3>Detecting Your Hardware...</h3>
+            <div class="hardware-detection">
+                <div class="detection-item">
+                    <span class="detection-label">CPU:</span>
+                    <span class="detection-value" id="cpu-info">Detecting...</span>
+                </div>
+                <div class="detection-item">
+                    <span class="detection-label">GPU:</span>
+                    <span class="detection-value" id="gpu-info">Detecting...</span>
+                </div>
+                <div class="detection-item">
+                    <span class="detection-label">RAM:</span>
+                    <span class="detection-value" id="ram-info">Detecting...</span>
+                </div>
+                <div class="detection-item">
+                    <span class="detection-label">Storage:</span>
+                    <span class="detection-value" id="storage-info">Detecting...</span>
+                </div>
+            </div>
+            <div class="detection-progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+        
+        <div class="scanner-results" id="scanner-results">
+            <!-- Results will be populated here -->
+        </div>
+    </div>
+    
+    <div class="scanner-info">
+        <p><i class="fas fa-shield-alt"></i> This scanner runs locally in your browser. No data is sent to our servers.</p>
+    </div>
+</section>
 
         <!-- More Games Section -->
         <section class="container">
