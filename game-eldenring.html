@@ -1499,6 +1499,7 @@ function showComparison() {
                 }
             }
         }
+        
 
         // ====================
         // SIMILAR GAMES
@@ -1649,5 +1650,127 @@ function showComparison() {
             }
         });
     </script>
+    <!-- Add to game pages -->
+<section class="mod-manager">
+    <h3><i class="fas fa-puzzle-piece"></i> Mods & Add-ons</h3>
+    
+    <div class="mod-categories">
+        <button class="mod-category active" data-category="graphics">Graphics</button>
+        <button class="mod-category" data-category="gameplay">Gameplay</button>
+        <button class="mod-category" data-category="ui">UI Mods</button>
+        <button class="mod-category" data-category="custom">Custom Content</button>
+    </div>
+    
+    <div class="mods-grid">
+        <!-- Mods will be loaded here -->
+    </div>
+    
+    <div class="mod-installer">
+        <h4>Mod Installer</h4>
+        <div class="mod-dropzone" id="mod-dropzone">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>Drag & drop mod files here</p>
+            <input type="file" id="mod-upload" multiple accept=".zip,.rar,.7z">
+        </div>
+    </div>
+</section>
+
+<script>
+class ModManager {
+    constructor(gameId) {
+        this.gameId = gameId;
+        this.installedMods = JSON.parse(localStorage.getItem(`mods_${gameId}`)) || [];
+        this.modLoadOrder = JSON.parse(localStorage.getItem(`modLoadOrder_${gameId}`)) || [];
+        
+        this.init();
+    }
+    
+    async init() {
+        await this.loadAvailableMods();
+        this.renderMods();
+        this.setupDragAndDrop();
+    }
+    
+    async loadAvailableMods() {
+        // Load from mod repository
+        const response = await fetch(`/api/mods/${this.gameId}`);
+        this.availableMods = await response.json();
+    }
+    
+    async installMod(modId) {
+        const mod = this.availableMods.find(m => m.id === modId);
+        
+        // Check dependencies
+        const depsMet = await this.checkDependencies(mod.dependencies);
+        if (!depsMet) {
+            this.showDependencyError(mod.dependencies);
+            return;
+        }
+        
+        // Check conflicts
+        const conflicts = this.checkConflicts(mod);
+        if (conflicts.length > 0) {
+            this.showConflictWarning(conflicts);
+            return;
+        }
+        
+        // Download and install
+        await this.downloadMod(mod);
+        this.addToLoadOrder(mod);
+        
+        // Apply mod
+        await this.applyMod(mod);
+        
+        // Save to installed mods
+        this.installedMods.push(mod);
+        this.saveMods();
+        
+        this.showInstallComplete(mod);
+    }
+    
+    setupDragAndDrop() {
+        const dropzone = document.getElementById('mod-dropzone');
+        
+        dropzone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropzone.classList.add('dragover');
+        });
+        
+        dropzone.addEventListener('drop', async (e) => {
+            e.preventDefault();
+            dropzone.classList.remove('dragover');
+            
+            const files = Array.from(e.dataTransfer.files);
+            await this.processModFiles(files);
+        });
+        
+        dropzone.addEventListener('click', () => {
+            document.getElementById('mod-upload').click();
+        });
+    }
+    
+    async processModFiles(files) {
+        for (const file of files) {
+            // Validate file
+            if (!this.validateModFile(file)) {
+                this.showInvalidFileError(file);
+                continue;
+            }
+            
+            // Extract mod
+            const modData = await this.extractModFile(file);
+            
+            // Validate mod structure
+            if (!this.validateModStructure(modData)) {
+                this.showInvalidModError();
+                continue;
+            }
+            
+            // Install custom mod
+            await this.installCustomMod(modData);
+        }
+    }
+}
+</script>
 </body>
 </html>
