@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Mods Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-blue: #0a0e29;
+            --secondary-blue: #1a1f3e;
+            --accent-blue: #3498db;
+            --accent-purple: #9b59b6;
+            --dark-bg: #0c0c14;
+            --light-text: #f0f0f0;
+            --card-bg: rgba(26, 31, 62, 0.7);
+            --hover-glow: rgba(155, 89, 182, 0.4);
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-bg));
+            color: var(--light-text);
+            min-height: 100vh;
+            padding-bottom: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(90deg, rgba(10, 14, 41, 0.9), rgba(26, 31, 62, 0.9));
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(52, 152, 219, 0.2);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #b0b0d0;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .search-container {
+            max-width: 700px;
+            margin: 30px auto 40px;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 16px 25px;
+            border-radius: 50px;
+            border: 2px solid rgba(52, 152, 219, 0.3);
+            background: rgba(10, 14, 41, 0.8);
+            color: white;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.4);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+        }
+
+        .mods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .mod-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(52, 152, 219, 0.1);
+            cursor: pointer;
+        }
+
+        .mod-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(155, 89, 182, 0.3);
+            border-color: var(--accent-purple);
+        }
+
+        .mod-img-container {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .mod-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .mod-card:hover .mod-img {
+            transform: scale(1.05);
+        }
+
+        .mod-info {
+            padding: 20px;
+            position: relative;
+        }
+
+        .mod-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mod-category {
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .mod-description {
+            color: #b0b0d0;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .mod-stats {
+            display: flex;
+            justify-content: space-between;
+            color: #8a8ac4;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+        }
+
+        .mod-hover-popup {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 14, 41, 0.95);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 10;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .mod-card:hover .mod-hover-popup {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-title {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .popup-text {
+            color: #b0b0d0;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .download-btn {
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(155, 89, 182, 0.4);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            grid-column: 1 / -1;
+            color: #b0b0d0;
+            font-size: 1.2rem;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--accent-purple);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #8a8ac4;
+            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .mods-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mods-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-box {
+                padding: 14px 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-gamepad"></i> Game Mods Gallery</h1>
+            <p class="subtitle">Discover amazing modifications for your favorite games. Hover over any mod to see details, click to download and install. All mods are tested and community-approved.</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" class="search-box" id="searchInput" placeholder="Search for mods by name, category, or description...">
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+
+        <div class="mods-grid" id="modsGrid">
+            <!-- Mod cards will be generated by JavaScript -->
+        </div>
+
+        <footer>
+            <p>Game Mods Gallery &copy; 2023 | All mods are user-created content. Use at your own risk.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Sample mod data
+        const modsData = [
+            {
+                id: 1,
+                title: "Fantasy Texture Pack",
+                category: "Graphics",
+                image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                description: "High-resolution texture pack that transforms the game world into a fantasy realm with enhanced details.",
+                popupText: "This texture pack replaces all default textures with high-quality fantasy-themed alternatives. Compatible with all game versions from 1.15 onward. Installation requires at least 4GB VRAM.",
+                downloads: "124,580",
+                rating: "4.9",
+                size: "2.4 GB"
+            },
+            {
+                id: 2,
+                title: "Survival Overhaul",
+                category: "Gameplay",
+                image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                description: "Complete survival overhaul with new mechanics, crafting systems, and challenging encounters.",
+                popupText: "This mod completely transforms the survival experience with over 200 new items, advanced crafting mechanics, and realistic survival challenges. Includes temperature system, hunger overhaul, and new enemy AI.",
+                downloads: "89,430",
+                rating: "4.7",
+                size: "850 MB"
+            },
+            {
+                id: 3,
+                title: "Cyberpunk City",
+                category: "World",
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                description: "Adds a massive cyberpunk-themed city with neon lights, futuristic vehicles, and new quests.",
+                popupText: "Explore a sprawling cyberpunk metropolis with 5 distinct districts, interactive NPCs, 50+ new missions, and custom vehicles. This world expansion is fully compatible with most gameplay mods.",
+                downloads: "210,750",
+                rating: "4.8",
+                size: "3.2 GB"
+            },
+            {
+                id: 4,
+                title: "Magic System Expansion",
+                category: "Magic",
+                image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                description: "Adds 120+ new spells, rituals, and magical creatures to the game's magic system.",
+                popupText: "This expansive magic mod introduces 5 new schools of magic, over 120 spells with unique visual effects, ritual casting mechanics, and 25+ magical creatures. Complete with skill tree and progression system.",
+                downloads: "156,320",
+                rating: "4.9",
+                size: "1.8 GB"
+            },
+            {
+                id: 5,
+                title: "Realistic Weather & Seasons",
+                category: "Environment",
+                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                description: "Dynamic weather system with seasonal changes, affecting gameplay and visuals.",
+                popupText: "Experience realistic weather patterns that change with seasons. This mod includes 15 different weather types, seasonal foliage changes, and gameplay effects like visibility reduction in fog or movement penalty in snow.",
+                downloads: "98,560",
+                rating: "4.6",
+                size: "720 MB"
+            },
+            {
+                id: 6,
+                title: "Combat Enhancement",
+                category: "Combat",
+                image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                description: "Overhauls combat mechanics with new weapons, martial arts, and enemy AI improvements.",
+                popupText: "Complete combat overhaul featuring 45 new weapons, 8 fighting styles, enhanced enemy AI with tactical behaviors, locational damage system, and slow-motion finishing moves. Compatible with most armor and weapon mods.",
+                downloads: "142,890",
+                rating: "4.8",
+                size: "1.3 GB"
+            }
+        ];
+
+        // Function to generate mod cards
+        function generateModCards(mods) {
+            const modsGrid = document.getElementById('modsGrid');
+            modsGrid.innerHTML = '';
+            
+            if (mods.length === 0) {
+                modsGrid.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-search"></i>
+                        <p>No mods found matching your search. Try different keywords.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            mods.forEach(mod => {
+                const modCard = document.createElement('div');
+                modCard.className = 'mod-card';
+                modCard.innerHTML = `
+                    <div class="mod-img-container">
+                        <img src="${mod.image}" alt="${mod.title}" class="mod-img">
+                    </div>
+                    <div class="mod-info">
+                        <h3 class="mod-title">
+                            ${mod.title}
+                            <span class="mod-category">${mod.category}</span>
+                        </h3>
+                        <p class="mod-description">${mod.description}</p>
+                        <div class="mod-stats">
+                            <span><i class="fas fa-download"></i> ${mod.downloads}</span>
+                            <span><i class="fas fa-star"></i> ${mod.rating}/5</span>
+                            <span><i class="fas fa-hdd"></i> ${mod.size}</span>
+                        </div>
+                    </div>
+                    <div class="mod-hover-popup">
+                        <h3 class="popup-title">${mod.title}</h3>
+                        <p class="popup-text">${mod.popupText}</p>
+                        <button class="download-btn" onclick="downloadMod(${mod.id})">
+                            <i class="fas fa-download"></i> Download Mod
+                        </button>
+                    </div>
+                `;
+                
+                modsGrid.appendChild(modCard);
+            });
+        }
+
+        // Function to handle search
+        function handleSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            const filteredMods = modsData.filter(mod => {
+                return mod.title.toLowerCase().includes(searchTerm) ||
+                       mod.category.toLowerCase().includes(searchTerm) ||
+                       mod.description.toLowerCase().includes(searchTerm) ||
+                       mod.popupText.toLowerCase().includes(searchTerm);
+            });
+            
+            generateModCards(filteredMods);
+        }
+
+        // Function to simulate mod download
+        function downloadMod(modId) {
+            const mod = modsData.find(m => m.id === modId);
+            if (mod) {
+                // In a real implementation, this would redirect to a download page
+                // For this demo, we'll show an alert and simulate opening a new page
+                alert(`Downloading "${mod.title}"...\n\nIn a real website, this would redirect to the download page for this mod.`);
+                
+                // Simulate opening a new page for download
+                window.open(`https://example.com/mods/download/${modId}`, '_blank');
+            }
+        }
+
+        // Initialize the page with all mods
+        document.addEventListener('DOMContentLoaded', () => {
+            generateModCards(modsData);
+            
+            // Add event listener for search input
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', handleSearch);
+            
+            // Add click event to mod cards to open download page
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('.mod-card') && !e.target.closest('.download-btn')) {
+                    const modCard = e.target.closest('.mod-card');
+                    const modTitle = modCard.querySelector('.mod-title').textContent;
+                    alert(`Opening download page for: ${modTitle}\n\nIn a real website, this would navigate to the mod's detail/download page.`);
+                    
+                    // Simulate opening a new page
+                    window.open(`https://example.com/mods/detail/${modTitle.toLowerCase().replace(/\s+/g, '-')}`, '_blank');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
