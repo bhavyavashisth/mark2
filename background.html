@@ -16,14 +16,14 @@
       height: 600px;
       background: radial-gradient(
         circle at top left,
-        #3b5bff 0%,
-        #6a00ff 30%,
-        #0b0b14 70%
+        #ff2a2a 0%,
+        #8b0000 30%,
+        #0a0a0a 70%
       );
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #eaeaff;
+      color: #f2f2f2;
     }
 
     .container {
@@ -35,24 +35,29 @@
 
     .glow {
       position: absolute;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(120,80,255,0.4), transparent 70%);
-      filter: blur(40px);
-      top: 50px;
-      right: 80px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(
+        circle,
+        rgba(255, 60, 60, 0.45),
+        transparent 70%
+      );
+      filter: blur(45px);
+      top: 60px;
+      right: 90px;
     }
 
     .title {
       font-size: 42px;
       font-weight: 700;
       letter-spacing: 1px;
+      color: #ffffff;
     }
 
     .subtitle {
       margin-top: 12px;
       font-size: 16px;
-      color: #b8b8ff;
+      color: #ff9a9a;
     }
 
     .footer {
@@ -61,12 +66,13 @@
       width: 100%;
       text-align: center;
       font-size: 13px;
-      color: #9a9aff;
-      opacity: 0.8;
+      color: #ffb3b3;
+      opacity: 0.85;
+      letter-spacing: 0.4px;
     }
 
     .footer span {
-      color: #ff4fd8;
+      color: #ff3b3b;
     }
   </style>
 </head>
@@ -80,8 +86,9 @@
     </div>
 
     <div class="footer">
-      Made With <span>♥</span> by Gamesarc
+      made with <span>♥</span> by gamesarc
     </div>
   </div>
 </body>
 </html>
+
