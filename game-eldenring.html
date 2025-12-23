@@ -993,12 +993,304 @@ function showComparison() {
                     <i class="far fa-heart"></i>
                     <span>Add to Wishlist</span>
                 </button>
-                <!--Fix Button-->
-                  <button class="fix-error-btn" data-game-id="${game.id}" data-game-name="${game.name}">
-        <i class="fas fa-wrench"></i> Fix Installation Error
-    </button>
-</div>
-                
+                <!-- Css Buttons -->
+                /* Fix Error Button Styles */
+.fix-error-btn {
+    padding: 8px 15px;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.fix-error-btn:hover {
+    background: linear-gradient(135deg, #ff5252, #ff7b7b);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.fix-error-btn i {
+    font-size: 0.9rem;
+}
+
+.game-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+/* Fix Error Modal Specific Styles */
+.fix-error-modal {
+    max-width: 900px;
+    width: 95%;
+    padding: 2rem;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid rgba(93, 63, 211, 0.2);
+    padding-bottom: 1.5rem;
+}
+
+.modal-header h2 {
+    color: var(--secondary-blue);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.game-name-display {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+/* Video Container */
+.video-container {
+    position: relative;
+    width: 100%;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    min-height: 300px;
+}
+
+.video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: var(--text-gray);
+    z-index: 1;
+}
+
+.video-placeholder i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--primary-purple);
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Error Solutions */
+.error-solutions {
+    margin: 2rem 0;
+}
+
+.error-solutions h3 {
+    color: var(--secondary-blue);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.solution-card {
+    background: rgba(93, 63, 211, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-purple);
+    transition: transform 0.3s ease;
+}
+
+.solution-card:hover {
+    transform: translateY(-5px);
+    background: rgba(93, 63, 211, 0.2);
+}
+
+.solution-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.solution-card h4 {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.solution-card p {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Contact Support */
+.contact-support {
+    background: rgba(14, 165, 233, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    text-align: center;
+    border: 2px dashed rgba(14, 165, 233, 0.3);
+}
+
+.contact-support p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.support-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button.small {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+}
+
+.cta-button.telegram {
+    background: linear-gradient(135deg, #0088cc, #00a8ff);
+}
+
+/* Video Input Section */
+.video-input-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-input-section h4 {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.video-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.video-input {
+    flex: 1;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(93, 63, 211, 0.3);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.video-input:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+    background: rgba(93, 63, 211, 0.1);
+}
+
+.video-note {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .fix-error-modal {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .solutions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .video-container {
+        min-height: 250px;
+    }
+    
+    .game-actions {
+        flex-direction: column;
+    }
+    
+    .fix-error-btn, .wishlist-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .video-input-group {
+        flex-direction: column;
+    }
+    
+    .support-buttons {
+        flex-direction: column;
+    }
+    
+    .cta-button.small {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .fix-error-modal {
+        padding: 1rem;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .solution-card {
+        padding: 1rem;
+    }
+}
                 <div style="display: flex; gap: 15px; margin-top: 2rem;">
                     <a href="pc-games.html" class="cta-button">
                         <i class="fas fa-arrow-left"></i> Back to Games
