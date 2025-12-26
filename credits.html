@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credits & Acknowledgements | Games Arc</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-dark: #0a0a1a;
+            --secondary-dark: #1a1a2e;
+            --primary-purple: #5d3fd3;
+            --secondary-purple: #7c5fe6;
+            --primary-blue: #0ea5e9;
+            --secondary-blue: #38bdf8;
+            --text-light: #f1f5f9;
+            --text-gray: #94a3b8;
+            --card-bg: rgba(26, 26, 46, 0.9);
+            --hover-glow: rgba(93, 63, 211, 0.4);
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(10, 10, 26, 0.95);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+            padding: 5px;
+            box-shadow: 0 4px 12px rgba(93, 63, 211, 0.3);
+            transition: var(--transition);
+        }
+
+        .logo-link:hover .logo-img {
+            transform: rotate(5deg) scale(1.05);
+            box-shadow: 0 6px 20px rgba(93, 63, 211, 0.5);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .logo-main {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .logo-accent {
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background-color: var(--text-light);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--secondary-dark);
+            padding: 100px 30px 30px;
+            transition: var(--transition);
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .nav-menu.active {
+            right: 0;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-bottom: 25px;
+        }
+
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            background-color: rgba(93, 63, 211, 0.2);
+            color: var(--secondary-blue);
+            transform: translateX(5px);
+        }
+
+        .nav-menu i {
+            font-size: 1.5rem;
+            width: 30px;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px;
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(rgba(10, 10, 26, 0.9), rgba(10, 10, 26, 0.7));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Stats Banner */
+        .stats-banner {
+            background: linear-gradient(135deg, rgba(93, 63, 211, 0.2), rgba(14, 165, 233, 0.2));
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin: 3rem 0;
+            border: 2px solid rgba(93, 63, 211, 0.3);
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Credits Content */
+        .credits-content {
+            padding: 5rem 0;
+        }
+
+        .credit-card {
+            background-color: var(--card-bg);
+            padding: 3rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-purple);
+        }
+
+        .credit-card h2 {
+            color: var(--secondary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .credit-card h2 i {
+            color: var(--primary-purple);
+        }
+
+        .credit-card p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .credit-card ul {
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            color: var(--text-gray);
+        }
+
+        .credit-card li {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .credit-card li:before {
+            content: "✓";
+            color: #4ecdc4;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Source Grid */
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .source-card {
+            background: linear-gradient(135deg, var(--card-bg), rgba(26, 26, 46, 0.7));
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(93, 63, 211, 0.3);
+            transition: var(--transition);
+        }
+
+        .source-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--hover-glow);
+            border-color: var(--primary-purple);
+        }
+
+        .source-card i {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .source-card h3 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .source-card p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin: 3rem 0;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .progress-bar {
+            height: 20px;
+            background-color: var(--secondary-dark);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary-purple), var(--primary-blue));
+            border-radius: 10px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Compatibility Info */
+        .compatibility-info {
+            background: linear-gradient(135deg, rgba(76, 201, 240, 0.1), rgba(76, 201, 240, 0.05));
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            border-left: 4px solid #4ecdc4;
+        }
+
+        .compatibility-info h3 {
+            color: #4ecdc4;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .compatibility-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            background: rgba(26, 26, 46, 0.5);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(76, 201, 240, 0.2);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a1a;
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            color: var(--secondary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-purple);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(to right, var(--primary-purple), var(--primary-blue));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(93, 63, 211, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(93, 63, 211, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+            
+            .stat-number {
+                font-size: 3rem;
+            }
+            
+            .credit-card {
+                padding: 2rem;
+            }
+            
+            .logo-img {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .logo-main {
+                font-size: 1.3rem;
+            }
+            
+            .logo-accent {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html" class="logo-link">
+                <div class="logo-img">
+                    <img src="logo.png" alt="Games Arc Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">Games</span>
+                    <span class="logo-accent">Arc</span>
+                </div>
+            </a>
+        </div>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <nav class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="intel-mac.html"><i class="fab fa-apple"></i> Intel Mac Games</a></li>
+                <li><a href="arm-mac.html"><i class="fab fa-apple"></i> ARM Mac Games</a></li>
+                <li><a href="pc-games.html"><i class="fas fa-desktop"></i> PC Games</a></li>
+                <li><a href="premium-games.html"><i class="fas fa-crown"></i> Premium Games</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                <li><a href="credit.html"><i class="fas fa-heart"></i> Credits</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Credits & Acknowledgements</h1>
+        <p>Recognizing the sources and modifications that make Games Arc possible</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container credits-content">
+        <!-- Stats Banner -->
+        <div class="stats-banner">
+            <div class="stat-number">80%+</div>
+            <div class="stat-label">of games in our collection are sourced from apptorrent.ru, with modifications for better compatibility and performance</div>
+        </div>
+
+        <!-- Primary Credit Section -->
+        <div class="credit-card">
+            <h2><i class="fas fa-external-link-alt"></i> Primary Game Source</h2>
+            <p>
+                Games Arc proudly acknowledges that <strong>over 80% of our game collection</strong> originates from 
+                <a href="https://apptorrent.ru" target="_blank" style="color: var(--primary-blue); font-weight: bold;">apptorrent.ru</a>, 
+                one of the most comprehensive repositories of macOS and Windows applications.
+            </p>
+            
+            <p>
+                While we source games from this excellent platform, we've invested significant effort in:
+            </p>
+            
+            <ul>
+                <li><strong>Verification & Testing:</strong> Each game is thoroughly tested for security and functionality</li>
+                <li><strong>Compatibility Modifications:</strong> Many games have been modified to work better with Intel Mac systems</li>
+                <li><strong>User Experience Improvements:</strong> Simplified installation processes and better documentation</li>
+                <li><strong>Quality Control:</strong> Removal of unnecessary files and optimization for faster downloads</li>
+                <li><strong>Support Infrastructure:</strong> Added customer support and troubleshooting guides</li>
+            </ul>
+        </div>
+
+        <!-- Progress Bar Visualization -->
+        <div class="progress-container">
+            <div class="progress-label">
+                <span>Games from apptorrent.ru</span>
+                <span>80%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
+            <div class="progress-label">
+                <span>Games from other sources</span>
+                <span>20%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="background: linear-gradient(to right, #4ecdc4, #44a08d); width: 20%;"></div>
+            </div>
+        </div>
+
+        <!-- Source Breakdown -->
+        <div class="source-grid">
+            <div class="source-card">
+                <i class="fas fa-database"></i>
+                <h3>apptorrent.ru</h3>
+                <p>Primary source for macOS and Windows game files. We're grateful for their extensive collection.</p>
+                <a href="https://apptorrent.ru" target="_blank" class="cta-button" style="padding: 10px 20px;">
+                    Visit Source
+                </a>
+            </div>
+            
+            <div class="source-card">
+                <i class="fas fa-users"></i>
+                <h3>Community Contributions</h3>
+                <p>Modified game files, compatibility patches, and installation guides from our community.</p>
+                <a href="contact.html" class="cta-button" style="padding: 10px 20px; background: linear-gradient(to right, #4ecdc4, #44a08d);">
+                    Join Community
+                </a>
+            </div>
+            
+            <div class="source-card">
+                <i class="fas fa-code"></i>
+                <h3>Our Modifications</h3>
+                <p>Custom fixes, optimizations, and compatibility layers developed by our team.</p>
+                <a href="#modifications" class="cta-button" style="padding: 10px 20px; background: linear-gradient(to right, #ff6b6b, #ff8e53);">
+                    View Modifications
+                </a>
+            </div>
+        </div>
+
+        <!-- Compatibility Modifications Section -->
+        <div class="credit-card" id="modifications">
+            <h2><i class="fas fa-cogs"></i> Intel Mac Compatibility Modifications</h2>
+            <p>
+                Many games from apptorrent.ru were originally designed for newer Apple Silicon (M1/M2) Macs or specific Windows configurations. 
+                Our team has made significant modifications to ensure these games work seamlessly on Intel-based Mac systems.
+            </p>
+            
+            <div class="compatibility-info">
+                <h3>What We've Modified:</h3>
+                
+                <div class="compatibility-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>Wine/CrossOver Wrappers</h4>
+                        <p>Updated and optimized Wine wrappers for better Intel Mac performance</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>Library Dependencies</h4>
+                        <p>Added missing libraries and frameworks for Intel architecture</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>Graphics Optimization</h4>
+                        <p>Adjusted graphics settings for Intel integrated and discrete GPUs</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h4>Installation Scripts</h4>
+                        <p>Created simplified installation processes for non-technical users</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="margin-top: 2rem;">
+                These modifications ensure that games which might not originally work on Intel Macs now run smoothly, 
+                providing an expanded gaming library for Intel Mac users who are often overlooked in today's Apple Silicon-focused ecosystem.
+            </p>
+        </div>
+
+        <!-- Additional Acknowledgements -->
+        <div class="credit-card">
+            <h2><i class="fas fa-hands-helping"></i> Additional Acknowledgements</h2>
+            <p>Games Arc also benefits from contributions and resources from:</p>
+            
+            <ul>
+                <li><strong>Open Source Community:</strong> Various open-source tools and utilities used in game modifications</li>
+                <li><strong>Game Developers & Publishers:</strong> For creating the amazing games we help distribute</li>
+                <li><strong>Beta Testers:</strong> Our community members who test games and provide feedback</li>
+                <li><strong>Translators:</strong> Community members who help localize game information and guides</li>
+                <li><strong>Technical Contributors:</strong> Individuals who develop patches and compatibility fixes</li>
+            </ul>
+            
+            <p style="margin-top: 2rem; font-style: italic; color: var(--primary-blue);">
+                We believe in giving credit where credit is due. While we modify and curate the collection, 
+                we acknowledge the original sources that make this platform possible.
+            </p>
+        </div>
+
+        <!-- Call to Action -->
+        <div style="text-align: center; margin: 4rem 0;">
+            <h2 style="color: var(--secondary-blue); margin-bottom: 1.5rem;">Want to Contribute?</h2>
+            <p style="color: var(--text-gray); max-width: 800px; margin: 0 auto 2rem;">
+                If you have game modifications, compatibility fixes, or want to help improve our collection, 
+                we'd love to hear from you. Join our community and help make gaming better for everyone.
+            </p>
+            <a href="contact.html" class="cta-button" style="padding: 15px 40px;">
+                <i class="fas fa-envelope"></i> Contact Us to Contribute
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="logo-container" style="justify-content: flex-start; margin-bottom: 1.5rem;">
+                    <a href="index.html" class="logo-link">
+                        <div class="logo-img">
+                            <img src="logo.png" alt="Games Arc Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main">Games</span>
+                            <span class="logo-accent">Arc</span>
+                        </div>
+                    </a>
+                </div>
+                <p style="color: var(--text-gray);">Your ultimate destination for downloading games for ARM Mac, Intel Mac, and PC.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="intel-mac.html">Intel Mac Games</a></li>
+                    <li><a href="arm-mac.html">ARM Mac Games</a></li>
+                    <li><a href="pc-games.html">PC Games</a></li>
+                    <li><a href="premium-games.html">Premium Games</a></li>
+                    <li><a href="credit.html">Credits</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p style="color: var(--text-gray); margin-bottom: 1rem;"><i class="fas fa-envelope"></i> support@gamesarc.com</p>
+                <p style="color: var(--text-gray); margin-bottom: 1.5rem;"><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                
+                <h3 style="margin-top: 2rem;">Join Our Community</h3>
+                <div class="social-links">
+                    <a href="https://t.me/Gamesarc_Community" target="_blank" title="Telegram: Gamesarc_Community"><i class="fab fa-telegram"></i></a>
+                    <a href="https://discord.gg/GamesArc" target="_blank" title="Discord: GamesArc"><i class="fab fa-discord"></i></a>
+                    <a href="mailto:support@gamesarc.com" title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 1rem;">All premium games can be purchased via Telegram and Discord. Replies within 24 hours.</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Games Arc. All rights reserved. All trademarks are property of their respective owners.</p>
+            <p style="margin-top: 0.5rem;">Special thanks to apptorrent.ru and all contributors who make this platform possible.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #64748b;">This website is for demonstration purposes only.</p>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const progressFill = document.getElementById('progressFill');
+
+        // Initialize the page
+        function init() {
+            setupEventListeners();
+            animateProgressBar();
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Mobile Navigation Toggle
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    }
+                });
+            });
+        }
+
+        // Animate progress bar
+        function animateProgressBar() {
+            if (progressFill) {
+                setTimeout(() => {
+                    progressFill.style.width = '80%';
+                }, 500);
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
